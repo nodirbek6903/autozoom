@@ -82,14 +82,36 @@
 }
 .brand-modal{
     position: absolute;
-    width: 50%;
+    min-width: 50%;
     top: 50px;
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    background-color: #5F5C5C;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    background-color: #2f3030;
     border-radius: 10px;
+    gap: 20px;
+    align-content: space-between;
 }
 .brand-modal .brand-modal-item{
     color: #fff;
+    text-decoration: none;
+    margin: 0 auto;
+}
+.brand-modal .brand-modal-item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-modal .brand-modal-item .brand-logo .brand-img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.brand-modal .brand-modal-item .brand-name{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.name-item{
+  opacity: 0.7;
 }
