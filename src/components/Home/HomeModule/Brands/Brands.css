@@ -1,0 +1,44 @@
+.brands-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  background: #111219;
+  min-height: 400px;
+}
+.brands-section {
+  width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+}
+.card-title {
+  color: #fff;
+  margin-bottom: 50px;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.swiper-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 180px;
+  background-color: #000;
+  margin: 0 auto;
+  text-decoration: none;
+}
+.swiper-slide .brand-img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+.brand-title {
+  color: #fff;
+  font-size: 20px;
+  opacity: 0.8;
+  letter-spacing: 1px;
+  font-weight: 600;
+}

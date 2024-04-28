@@ -14,7 +14,6 @@ const Footer = () => {
 
       if (response.ok) {
         const responseData = await response.json();
-        console.log(responseData.data);
         setData(responseData.data);
       } else {
         console.log("Malumot olishda xatolik");
