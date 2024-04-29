@@ -3,6 +3,7 @@
   max-width: 1920px;
   margin: 0 auto;
   background: #272933;
+  padding: 10px 0;
 }
 .info-cards {
   display: flex;
