@@ -59,9 +59,6 @@
 .ans.active{
     display: flex;
 }
-hr{
-    width: 55%;
-}
 .instagram-cards{
     width: 90%;
     display: flex;
