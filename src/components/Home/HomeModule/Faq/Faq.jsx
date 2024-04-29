@@ -1,12 +1,25 @@
 import { CiCircleChevDown, CiCircleChevRight } from "react-icons/ci";
 import "./Faq.css";
 import { useState } from "react";
+import InstaImg1 from "../../../../assets/insta-img-1.webp"
+import InstaImg2 from "../../../../assets/insta-img-2.webp"
+import InstaImg3 from "../../../../assets/insta-img-3.webp"
+import InstaImg4 from "../../../../assets/insta-img-4.webp"
+import InstaImg5 from "../../../../assets/insta-img-5.webp"
+import InstaImg6 from "../../../../assets/insta-img-6.webp"
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [modalImg,setModalImg] = useState(null)
 
   const handleClickActive = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+  const openModal = (image) => {
+    setModalImg(image)
+  }
+  const closeModal = () => {
+    setModalImg(null)
+  }
 
   const Faqs = [
     {
@@ -41,6 +54,32 @@ const Faq = () => {
         "The contract prescribes two drivers, but at the time of filling out the contract, you must provide a driver's license and passport.",
     },
   ];
+  const instagram = [
+    {
+      id:1,
+      img: InstaImg1,
+    },
+    {
+      id:2,
+      img: InstaImg2,
+    },
+    {
+      id:3,
+      img: InstaImg3,
+    },
+    {
+      id:4,
+      img: InstaImg4,
+    },
+    {
+      id:5,
+      img: InstaImg5,
+    },
+    {
+      id:6,
+      img: InstaImg6,
+    },
+  ]
 
   return (
     <div className="faq-container">
@@ -60,6 +99,26 @@ const Faq = () => {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+      <div className="instagram-cards">
+        <span className="insta">FOLLOW US ON INSTAGRAM</span>
+        <div className="cards-insta">
+          {instagram.map((image,index) => (
+            <div className="card-insta" key={index} onClick={() => openModal(image)}>
+              <img src={image.img} alt="" className="images" />
+            </div>
+          ))}
+          {
+            modalImg && (
+              <div className="modal" onClick={closeModal}>
+                <div className="img-modal" >
+                <span className="close">&times;</span>
+                <img src={modalImg.img} className="modal-content" alt="" />
+              </div>
+              </div>
+            )
+          }
         </div>
       </div>
     </div>
