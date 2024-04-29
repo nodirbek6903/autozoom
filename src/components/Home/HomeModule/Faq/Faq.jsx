@@ -90,7 +90,6 @@ const Faq = () => {
       if(response.ok){
         const locationData =await response.json()
         setLocation(locationData?.data)
-        console.log(locationData.data);
       }
     } catch (error) {
       console.log(error);
@@ -103,7 +102,6 @@ const Faq = () => {
       if(response.ok){
         const cityData =await response.json()
         setCity(cityData?.data)
-        console.log("City",cityData.data);
       }
     } catch (error) {
       console.log(error);

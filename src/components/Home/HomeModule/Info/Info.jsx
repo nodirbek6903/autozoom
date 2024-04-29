@@ -18,7 +18,6 @@ const Info = () => {
 
       if (response.ok) {
         const cars = await response.json();
-        console.log("cars", cars?.data);
         setCarsData(cars?.data);
       }
     } catch (error) {
