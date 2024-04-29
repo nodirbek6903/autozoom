@@ -1,15 +1,18 @@
 import { CiCircleChevDown, CiCircleChevRight } from "react-icons/ci";
 import "./Faq.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InstaImg1 from "../../../../assets/insta-img-1.webp"
 import InstaImg2 from "../../../../assets/insta-img-2.webp"
 import InstaImg3 from "../../../../assets/insta-img-3.webp"
 import InstaImg4 from "../../../../assets/insta-img-4.webp"
 import InstaImg5 from "../../../../assets/insta-img-5.webp"
 import InstaImg6 from "../../../../assets/insta-img-6.webp"
+import { Link } from "react-router-dom";
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [modalImg,setModalImg] = useState(null)
+  const [location,setLocation] = useState([])
+  const [city,setCity] = useState([])
 
   const handleClickActive = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -80,6 +83,37 @@ const Faq = () => {
       img: InstaImg6,
     },
   ]
+// location uchun
+  const fetchLocation = async () => {
+    try {
+      const response = await fetch("https://autoapi.dezinfeksiyatashkent.uz/api/locations")
+      if(response.ok){
+        const locationData =await response.json()
+        setLocation(locationData?.data)
+        console.log(locationData.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  // city uchun
+  const fetchCity = async () => {
+    try {
+      const response = await fetch("https://autoapi.dezinfeksiyatashkent.uz/api/cities")
+      if(response.ok){
+        const cityData =await response.json()
+        setCity(cityData?.data)
+        console.log("City",cityData.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchLocation()
+    fetchCity()
+  },[])
 
   return (
     <div className="faq-container">
@@ -119,6 +153,28 @@ const Faq = () => {
               </div>
             )
           }
+        </div>
+      </div>
+      <div className="location-city-container">
+        <div className="location-cards">
+          <span className="location-title">Location</span>
+          <div className="location-card">
+            {
+              location.map((item,index) => (
+                <Link to={`/cars/${item.id}`} className="location-item" key={index}>{item.name}</Link>
+              ))
+            }
+          </div>
+        </div>
+        <div className="city-cards">
+          <span className="city-title">CITY</span>
+          <div className="city-card">
+            {
+              city.map((city,index) => (
+                <Link to={`/cars/${city.id}`} className="city-item" key={index}>{city.name}</Link>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
