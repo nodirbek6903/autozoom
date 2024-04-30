@@ -18,6 +18,9 @@ const BlogInfo = () => {
         </div>
         <h2 className="blogInfo__title">{data.title}</h2>
         <p className="blogInfo__description">{data.description}</p>
+        <h3 className="blogInfo__subtitle">{data.location}</h3>
+        <img src={data.img} alt="img" />
+        <p className="blogInfo__description">{data.description}</p>
       </div>
     </div>
   )
