@@ -26,6 +26,7 @@ const Navbar = () => {
     }
   };
 
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -79,9 +80,10 @@ const Navbar = () => {
             <div
               className="brand-modal"
               onMouseLeave={() => setBrandModal(false)}
+              onClick={() => setBrandModal(false)}
             >
               {brand.map((item, index) => (
-                <Link to={`/cars/${item.id}`} className="brand-modal-item" key={index}>
+                <Link to={`/cars/${item.id}`} onClick={() => setBrandModal(false)} className="brand-modal-item" key={index}>
                   <div className="brand-logo">
                     <img
                       src={imgUrl + item.image_src}
