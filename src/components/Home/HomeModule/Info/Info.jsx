@@ -27,6 +27,8 @@ const Info = () => {
 
   return (
     <div className="info-container">
+
+      <h1></h1>
       <div className="info-cards">
         {carsData.map((car, carIndex) => (
           <div className="info-card" key={carIndex}>
