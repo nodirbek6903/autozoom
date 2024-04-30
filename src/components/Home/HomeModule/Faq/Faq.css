@@ -59,9 +59,6 @@
 .ans.active{
     display: flex;
 }
-hr{
-    width: 55%;
-}
 .instagram-cards{
     width: 90%;
     display: flex;
@@ -131,7 +128,8 @@ hr{
     gap: 50px;
     width: 90%;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 140px;
+    margin-bottom: 40px;
 }
 .location-cards,.city-cards{
     display: flex;

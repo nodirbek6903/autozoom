@@ -9,7 +9,7 @@ const Footer = () => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://autoapi.dezinfeksiyatashkent.uz/api/brands"
+        "https://autoapi.dezinfeksiyatashkent.uz/api/categories"
       );
 
       if (response.ok) {
@@ -55,7 +55,7 @@ const Footer = () => {
                 </Link>
                 {data.map((item, index) => (
                   <Link to={`/cars/${item.id}`} className="cars" key={index}>
-                    {item.title}
+                    {item.name_en}
                   </Link>
                 ))}
               </div>

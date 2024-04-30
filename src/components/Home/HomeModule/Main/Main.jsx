@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./Main.css"
 import { CiCircleChevRight } from "react-icons/ci"
 const Main = () => {
@@ -8,7 +9,7 @@ const Main = () => {
         <p className="main-desc">
         Best sports car & supercar rental Dubai, Exclusive offers on luxury car rental Dubai Cheap price
         </p>
-        <button className="main-btn">RENT A CAR DUBAI CATALOG <CiCircleChevRight className="main-icon" /></button>
+        <Link to="/cars" className="main-btn">RENT A CAR DUBAI CATALOG <CiCircleChevRight className="main-icon" /></Link>
       </div>
     </div>
   )
