@@ -119,6 +119,7 @@ const Faq = () => {
         <span className="faq">Faq</span>
         <div className="cards-faq">
           {Faqs.map((faq, index) => (
+            <>
             <div className="card-faq" key={index} onClick={() => handleClickActive(index)}>
               {activeIndex != index ? <CiCircleChevRight className="faq-icon" /> : <CiCircleChevDown className="faq-icon" />}
               <div className="faq-ans-ques">
@@ -128,8 +129,10 @@ const Faq = () => {
                 <span className={`ans ${activeIndex=== index ? "active" : ""}`}>
                   {faq.answer}
                 </span>
+              <hr className="faq-hr" />
               </div>
             </div>
+            </>
           ))}
         </div>
       </div>

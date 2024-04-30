@@ -44,20 +44,25 @@
 .ques{
     font-size: 23px;
     color: #fff;
-    font-weight: 600;
+    font-weight: 500;
 }
 .ans{
     width: 700px;
     min-height: 60px;
     color: #fff;
     background: #272933;
-    padding: 10px 20px;
-    font-size: 15px;
+    padding: 10px 30px;
+    font-size: 17px;
+    line-height: 1.5;
     display: none;
     align-items: center;
 }
 .ans.active{
     display: flex;
+}
+.faq-hr{
+    width: 800px;
+    opacity: 0.5;
 }
 .instagram-cards{
     width: 90%;
