@@ -1,0 +1,37 @@
+/* ================ BLOG =================== */
+#blog {
+  padding: 25px;
+  background-color: var(--bg-color-secondary);
+}
+#blog .container {
+  margin: 0 auto;
+  max-width: 1240px;
+}
+.blog__title {
+  margin: 25px 0;
+  color: var(--font-color-primary);
+  text-transform: uppercase;
+  font-size: var(--title-font-size);
+}
+/* ================ BLOG =================== */
+
+@media screen and (max-width: 1140px) {
+  #blog .container {
+    width: 900px;
+  }
+}
+@media screen and (max-width: 968px) {
+  #blog .container {
+    width: 760px;
+  }
+}
+@media screen and (max-width: 868px) {
+  #blog .container {
+    width: 700px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #blog .container {
+    width: 96%;
+  }
+}

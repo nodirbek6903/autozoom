@@ -6,3 +6,21 @@
 body{
   background: #111219;
 }
+
+:root {
+  --bg-color-primary: #111219;
+  --bg-color-secondary: #1E1F27;
+  --bg-color-third: #272933;
+  --title-font-size: 36px;
+  --text-font-size: 18px;
+  --subtext-font-size: 14px;
+  --font-color-primary: #fff;
+  --font-color-secondary: #8CA1AC;
+}
+@media screen and (max-width: 768px) {
+  :root {
+    --title-font-size: 22px;
+    --text-font-size: 15px;
+    --subtext-font-size: 12px;
+  }
+}  
