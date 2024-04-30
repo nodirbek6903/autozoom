@@ -1,32 +1,31 @@
-/* ================ BLOG =================== */
-#blog {
+/* ============ BLOG INFO =============== */
+#blog-info {
   padding: 25px;
   background-color: var(--bg-color-secondary);
 }
-#blog .container {
+#blog-info .container {
   margin: 0 auto;
   max-width: 1240px;
 }
-.blog__title {
-  margin: 25px 0;
-  text-transform: uppercase;
+.blogInfo__title {
+  margin: 105px 0 25px 0;
   color: var(--font-color-primary);
-  font-size: var(--title-font-size);
+  font-size: calc(var(--title-font-size) + 8px);
 }
-.blog__card__list {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
+.blogInfo__description {
+  color: var(--font-color-secondary);
 }
 .blog__breadcrumb {
   gap: 5px;
   display: flex;
+  margin-bottom: 25px;
   color: var(--font-color-secondary);
   font-size: var(--subtext-font-size);
 }
 .blog__breadcrumb a {
   color: var(--font-color-secondary);
 }
-/* ================ BLOG =================== */
+/* ============ BLOG INFO =============== */
 
 @media screen and (max-width: 1140px) {
   #blog .container {

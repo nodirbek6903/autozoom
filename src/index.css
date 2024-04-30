@@ -7,6 +7,10 @@ body{
   background: #111219;
 }
 
+a {
+  text-decoration: none;
+}
+
 :root {
   --bg-color-primary: #111219;
   --bg-color-secondary: #1E1F27;
@@ -15,7 +19,7 @@ body{
   --text-font-size: 18px;
   --subtext-font-size: 14px;
   --font-color-primary: #fff;
-  --font-color-secondary: #8CA1AC;
+  --font-color-secondary: #fff9;
 }
 @media screen and (max-width: 768px) {
   :root {

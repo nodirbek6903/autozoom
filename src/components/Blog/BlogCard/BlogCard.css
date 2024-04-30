@@ -44,6 +44,7 @@
   cursor: pointer;
   transition: 0.5s;
   font-size: var(--title-font-size);
+  color: var(--font-color-secondary);
 }
 .card__content__footer .card__arrow__icon:hover {
   transform: translateX(10px);

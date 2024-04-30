@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import Conditions from "./components/Conditions/Conditions";
 import Blog from "./components/Blog/Blog";
+import BlogInfo from "./components/BlogInfo/BlogInfo";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/terms_and_conditions" element={<Conditions />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog_info/:id" element={<BlogInfo />} />
           </Routes>
       <Footer />
       </div>
