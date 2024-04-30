@@ -1,5 +1,6 @@
 .slider-container {
   background-color: #111219;
+  margin-top: 50px;
 }
 .cars-img-container{
   display: flex;
@@ -9,7 +10,7 @@
 }
 .img-container {
   width: 700px;
-  height: 350px;
+  height: 300px;
   margin: 0 auto;
 }
 .cars-image {
