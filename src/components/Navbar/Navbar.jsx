@@ -26,6 +26,11 @@ const Navbar = () => {
     }
   };
 
+  const scrollTo = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  }
 
   useEffect(() => {
     fetchData();
@@ -61,13 +66,14 @@ const Navbar = () => {
           </div>
         </div>
         <div className="nav-logo">
-          <Link to="/">
+          <Link to="/" onClick={scrollTo}>
             <img src={Logo} className="logo-img" alt="" />
           </Link>
         </div>
         <div className="nav-items">
           <Link
             to="/cars"
+            onClick={scrollTo}
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
           >
@@ -83,7 +89,10 @@ const Navbar = () => {
               onClick={() => setBrandModal(false)}
             >
               {brand.map((item, index) => (
-                <Link to={`/cars/${item.id}`} onClick={() => setBrandModal(false)} className="brand-modal-item" key={index}>
+                <Link to={`/cars/${item.id}`} onClick={() => {
+                  setBrandModal(false)
+                  window.scrollTo({top:0})
+                }} className="brand-modal-item" key={index}>
                   <div className="brand-logo">
                     <img
                       src={imgUrl + item.image_src}
@@ -103,6 +112,7 @@ const Navbar = () => {
             to="/services"
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
+            onClick={scrollTo}
           >
             Services
           </Link>
@@ -110,6 +120,7 @@ const Navbar = () => {
             to="/about-us"
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
+            onClick={scrollTo}
           >
             About Us
           </Link>
@@ -117,6 +128,7 @@ const Navbar = () => {
             to="/contacts"
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
+            onClick={scrollTo}
           >
             Contacts
           </Link>
@@ -124,6 +136,7 @@ const Navbar = () => {
             to="/blog"
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
+            onClick={scrollTo}
           >
             Blog
           </Link>

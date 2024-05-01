@@ -23,6 +23,12 @@ const Footer = () => {
     }
   };
 
+  const  handleClick = () => {
+    window.scrollTo({
+      top:0
+    })
+  }
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -108,7 +114,7 @@ const Footer = () => {
                 &copy; {new Date().getFullYear()} Auto Zoom Car Rental. United
                 Arab Emirates.
               </span>
-              <Link to="/terms_and_conditions" className="conditions">
+              <Link to="/terms_and_conditions" onClick={handleClick} className="conditions">
                 Terms and Conditions
               </Link>
             </div>

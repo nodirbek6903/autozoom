@@ -18,7 +18,6 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/terms_and_conditions" element={<Conditions />} />
             <Route path="/blog_info/:id" element={<BlogInfo />} />
-
           </Routes>
       <Footer />
       </div>
