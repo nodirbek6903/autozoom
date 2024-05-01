@@ -12,8 +12,13 @@
   color: var(--font-color-primary);
   font-size: calc(var(--title-font-size) + 8px);
 }
-.blogInfo__description {
-  color: var(--font-color-secondary);
+.blogInfo__description,
+.blogInfo__subtitle {
+  color: var(--font-color-primary);
+  font-size: var(--text-font-size);
+}
+.blogInfo__subtitle {
+  margin: 25px 0;
 }
 .blog__breadcrumb {
   gap: 5px;
@@ -24,6 +29,11 @@
 }
 .blog__breadcrumb a {
   color: var(--font-color-secondary);
+}
+.blogInfo__img {
+  width: 100%;
+  margin: 25px 0;
+  object-fit: cover;
 }
 /* ============ BLOG INFO =============== */
 

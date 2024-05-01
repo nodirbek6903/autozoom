@@ -17,10 +17,10 @@ const BlogInfo = () => {
           <Link to={'/'}>Top 5 Reasons to Rent a Car Dubai</Link>
         </div>
         <h2 className="blogInfo__title">{data.title}</h2>
-        <p className="blogInfo__description">{data.description}</p>
-        <h3 className="blogInfo__subtitle">{data.location}</h3>
-        <img src={data.img} alt="img" />
-        <p className="blogInfo__description">{data.description}</p>
+        <p className="blogInfo__description">{data.descriptionOne}</p>
+        <p className="blogInfo__subtitle">{data.location}</p>
+        <img className="blogInfo__img" src={data.img} alt="img" />
+        <p className="blogInfo__description">{data.descriptionTwo}</p>
       </div>
     </div>
   )
