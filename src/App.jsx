@@ -1,11 +1,9 @@
-import {Routes,Route} from "react-router-dom"
-import Navbar from "./components/Navbar/Navbar";
+import { Route, Routes } from "react-router-dom";
+import Conditions from "./components/Conditions/Conditions";
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
-import Conditions from "./components/Conditions/Conditions";
-import Blog from "./components/Blog/Blog";
-import BlogInfo from "./components/BlogInfo/BlogInfo";
-
+import ParamsCars from './components/ParamsCars/Params-cars';
+import Navbar from './components/Navbar/Navbar';
 function App() {
   return (
     <>
@@ -13,9 +11,8 @@ function App() {
       <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/carsinfo/:id" element={<ParamsCars />} />
             <Route path="/terms_and_conditions" element={<Conditions />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog_info/:id" element={<BlogInfo />} />
           </Routes>
       <Footer />
       </div>
