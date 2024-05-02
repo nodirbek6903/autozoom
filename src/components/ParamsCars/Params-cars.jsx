@@ -7,6 +7,7 @@ const ParamsCars = () => {
   const {id} = useParams()
 
 const {data,isLoading} = UseGetCars(id)
+
 return (
     <div className="container-global">
       {isLoading ?<h1>Loading...</h1> :<Slickdots data={data?.data.filter(car=> car.id === id)} />}
