@@ -5,6 +5,7 @@ import Info from "./HomeModule/Info/Info"
 import Main from "./HomeModule/Main/Main"
 import Slider from "./HomeModule/Slider/Slider"
 import Faq from './HomeModule/Faq/Faq';
+import HomeService from "./HomeModule/HomeService/HomeService"
 const Home = () => {
   return (
     <>
@@ -12,7 +13,7 @@ const Home = () => {
     <Slider />
     <Brands />
     <Info />
-    {/* services */}
+    <HomeService />
     <Categories />
     <Faq />
     </>

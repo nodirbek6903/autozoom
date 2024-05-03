@@ -9,6 +9,8 @@ import BlogInfo from "./components/BlogInfo/BlogInfo";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import Faqs from "./components/Faqs/Faqs";
+import Services from "./components/Services/Services";
+import ServicePlans from './components/Services/ServicePlans/ServicePlans';
 function App() {
   const { i18n } = useTranslation();
 
@@ -33,6 +35,8 @@ function App() {
           <Route path="/terms_and_conditions" element={<Conditions />} />
           <Route path="/blog_info/:id" element={<BlogInfo />} />
           <Route path="/faq" element={<Faqs />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/:link" element={<ServicePlans />} />
         </Routes>
         <Footer />
       </div>
