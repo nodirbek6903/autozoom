@@ -19,9 +19,11 @@
     color: #fff;
 }
 .main-title{
-    width: 50%;
+    max-width: 50%;
     font-size: 30px;
     text-align: center;
+    letter-spacing: 10px;
+    line-height: 1.5;
 }
 .main-desc{
     width: 85%;
@@ -41,4 +43,8 @@
 }
 .main-icon{
     font-size: 35px;
+}
+
+@media screen and (max-width:1200px) {
+    
 }
