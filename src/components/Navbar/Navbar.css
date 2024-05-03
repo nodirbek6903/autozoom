@@ -166,7 +166,7 @@
     display: none;
   }
   .nav-items.active {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     display: grid;
