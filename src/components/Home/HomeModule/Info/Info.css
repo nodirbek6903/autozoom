@@ -138,3 +138,18 @@ hr{
     font-size: 20px;
   }
 }
+@media screen and (max-width:400px) {
+  .cars-slide .cars_image{
+    width: 220px;
+    height: 180px;
+  }
+  .info-title{
+    font-size: 10px;
+  }
+  .cars-name{
+    font-size: 10px;
+  }
+  .cars-model-price{
+    font-size: 10px;
+  }  
+}

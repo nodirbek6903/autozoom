@@ -14,7 +14,7 @@ const Home = () => {
     <Info />
     {/* services */}
     <Categories />
-    {/* <Faq /> */}
+    <Faq />
     </>
   )
 }
