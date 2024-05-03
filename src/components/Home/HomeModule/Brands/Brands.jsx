@@ -1,10 +1,10 @@
 import "./Brands.css";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { useEffect, useState } from "react";
-import { Navigation, Pagination,Grid } from "swiper/modules";
+import { Navigation, Pagination, Grid } from "swiper/modules";
 
 import "swiper/css";
-import 'swiper/css/grid';
+import "swiper/css/grid";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Link } from "react-router-dom";
@@ -36,13 +36,50 @@ const Brands = () => {
       <div className="brands-section">
         <h1 className="card-title">Brands</h1>
         <Swiper
-          slidesPerView={6}
-          grid={{
-            rows:2,
-            fill: 'row',
-          }}
-          spaceBetween={30}
-          modules={[Navigation, Pagination,Grid]}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 0,
+              pagination: false,
+            },
+            400: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+              pagination: false,
+            },
+            576: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+              pagination: false,
+            },
+            768: {
+              slidesPerView: 4,
+              spaceBetween:15,
+              pagination: {
+                clickable:true
+              }
+            },
+            992: {
+              slidesPerView: 5,
+              spaceBetween: 20,
+              pagination: {
+                clickable:true
+              }
+            },
+            1200: {
+              slidesPerView: 6,
+              spaceBetween:30,
+              pagination: {
+                clickable:true
+              },
+              grid:{
+                rows: 2,
+                fill: "row",
+              }
+            },
+          }}  
+          pagination={true}       
+          modules={[Navigation, Pagination, Grid]}
           className="swiper-cards"
         >
           {brands.map((item, index) => (
