@@ -1,36 +1,33 @@
-import { useEffect, useState } from "react";
-import "./Info.css";
+import { Box, Skeleton } from "@mui/material";
 import { CiCircleChevRight } from "react-icons/ci";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import GetCars from "../../../../api/cars/get-cars.api";
+import "./Info.css";
 const Info = () => {
-  const [carsData, setCarsData] = useState([]);
+
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
-  useEffect(() => {
-    fetchDataCars();
-  }, []);
-  // cars uchun
-  const fetchDataCars = async () => {
-    try {
-      const response = await fetch(
-        "https://autoapi.dezinfeksiyatashkent.uz/api/cars"
-      );
 
-      if (response.ok) {
-        const cars = await response.json();
-        setCarsData(cars?.data);
-      }
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
+  const {data:carsData,isLoading} = GetCars()
   return (
     <div className="info-container">
 
       <h1></h1>
       <div className="info-cards">
-        {carsData.map((car, carIndex) => (
+        {
+          isLoading ? (
+            <Box sx={{display:"flex",flexWrap:"wrap",justifyContent:"space-between",rowGap:"20px"}}>
+            {
+              Array.from({ length: 6 }).map((_,ind) =>{
+                return(
+                  <Skeleton key={ind} variant="rounded" width={410} height={300} />
+                )
+              })
+            }
+            </Box>
+          ):
+        
+        carsData?.data?.map((car, carIndex) => (
           <div className="info-card" key={carIndex}>
             <div className="info-titles-btn">
               <span className="info-title">
