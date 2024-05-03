@@ -48,7 +48,7 @@ const Categories = () => {
         </div>
       </div>
       <div className="category-cards2">
-        <div className="category-card2">
+        <div className="category-card2 youtubeCard">
         <div className="youtube-container">
           <iframe
             width="560"
