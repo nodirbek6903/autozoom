@@ -27,7 +27,6 @@ const Info = () => {
 
   return (
     <div className="info-container">
-
       <h1></h1>
       <div className="info-cards">
         {carsData.map((car, carIndex) => (
@@ -44,7 +43,23 @@ const Info = () => {
               </button>
             </div>
             <div className="card-slider">
-              <Swiper loop={false} slidesPerView={3} className="card-swiper">
+              <Swiper loop={false} slidesPerView={3} breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                },
+                400: {
+                  slidesPerView:1
+                },
+                576:{
+                  slidesPerView:1
+                },
+                768:{
+                  slidesPerView:2
+                },
+                992:{
+                  slidesPerView:3
+                }
+              }} className="card-swiper">
                 {car.car_images.map((image, imageIndex) => (
                   <SwiperSlide key={imageIndex}>
                     <Link

@@ -96,3 +96,45 @@ hr{
   font-size: 15px;
   background: none;
 }
+
+@media screen and (max-width:992px) {
+  .info-title{
+    font-size: 25px;
+  }
+  .cars-name{
+    font-size: 20px;
+  }
+  .cars-model-price{
+    font-size: 20px;
+  }
+}
+@media screen and (max-width:800px) {
+  .info-title{
+    font-size: 20px;
+  }
+  .cars-name{
+    font-size: 15px;
+  }
+  .cars-model-price{
+    font-size: 15px;
+  }
+  .cars-slide .cars_image{
+    width: 250px;
+    height: 150px;
+  }
+}
+@media screen and (max-width:600px) {
+  .info-title{
+    font-size: 15px;
+  }
+  .cars-slide .cars_image{
+    width: 300px;
+    height: 200px;
+  }
+  .title-btn{
+    font-size: 10px;
+  }
+  .title-icon{
+    font-size: 20px;
+  }
+}
