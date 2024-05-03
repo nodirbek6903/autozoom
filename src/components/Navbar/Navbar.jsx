@@ -3,20 +3,22 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import "./Navbar.css";
 import Logo from "../../assets/Logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [brand, setBrand] = useState([]);
   const [brandModal, setBrandModal] = useState(false);
-  const [active,setActive] = useState(false)
-  const [navActive,setNavActive] = useState(false)
+  const [active, setActive] = useState(false);
+  const [navActive, setNavActive] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
 
   const handleActive = () => {
-    setNavActive(!navActive)
-  }
-// get qismi
+    setNavActive(!navActive);
+  };
+  // get qismi
   const fetchData = async () => {
     try {
       const response = await fetch(
@@ -26,19 +28,18 @@ const Navbar = () => {
       if (response.ok) {
         const responseData = await response.json();
         setBrand(responseData.data);
-      }else{
+      } else {
         console.log("Malumot olishda xatolik");
       }
     } catch (error) {
       console.log(error);
     }
   };
-
   const scrollTo = () => {
     window.scrollTo({
       top: 0,
     });
-  }
+  };
 
   useEffect(() => {
     fetchData();
@@ -68,11 +69,31 @@ const Navbar = () => {
               />
             </span>
           </div>
-          <FaSearch onClick={() =>setActive(true)} className="search-icon hideSearch" />
+          <FaSearch
+            onClick={() => setActive(true)}
+            className="search-icon hideSearch"
+          />
           <div className={`nav-search ${active ? "active" : ""}`}>
             <FaSearch className="search-icon" />
-            <input type="text" className="search-input" placeholder="Search" />
-            <IoIosCloseCircleOutline onClick={() =>setActive(false)} className="close-icon" />
+            <input
+              type="text"
+              className="search-input"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  const searchText = e.target.value;
+                  setSearchValue(searchText);
+                  navigate(`/cars/${searchText}keyword`);
+                  setSearchValue("")
+                }
+              }}
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              placeholder="Search"
+            />
+            <IoIosCloseCircleOutline
+              onClick={() => setActive(false)}
+              className="close-icon"
+            />
           </div>
         </div>
         <div className="nav-logo">
@@ -85,8 +106,7 @@ const Navbar = () => {
           <Link
             to="/cars"
             onClick={() => {
-              scrollTo(),
-              setNavActive(false)
+              scrollTo(), setNavActive(false);
             }}
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
@@ -103,11 +123,16 @@ const Navbar = () => {
               onClick={() => setBrandModal(false)}
             >
               {brand.map((item, index) => (
-                <Link to={`/cars/${item.id}`} onClick={() => {
-                  setBrandModal(false)
-                  setNavActive(false)
-                  window.scrollTo({top:0})
-                }} className="brand-modal-item" key={index}>
+                <Link
+                  to={`/cars/${item.id}`}
+                  onClick={() => {
+                    setBrandModal(false);
+                    setNavActive(false);
+                    window.scrollTo({ top: 0 });
+                  }}
+                  className="brand-modal-item"
+                  key={index}
+                >
                   <div className="brand-logo">
                     <img
                       src={imgUrl + item.image_src}
@@ -128,8 +153,7 @@ const Navbar = () => {
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
             onClick={() => {
-              scrollTo(),
-              setNavActive(false)
+              scrollTo(), setNavActive(false);
             }}
           >
             Services
@@ -139,8 +163,7 @@ const Navbar = () => {
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
             onClick={() => {
-              scrollTo(),
-              setNavActive(false)
+              scrollTo(), setNavActive(false);
             }}
           >
             About Us
@@ -150,8 +173,7 @@ const Navbar = () => {
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
             onClick={() => {
-              scrollTo(),
-              setNavActive(false)
+              scrollTo(), setNavActive(false);
             }}
           >
             Contacts
@@ -161,8 +183,7 @@ const Navbar = () => {
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
             onClick={() => {
-              scrollTo(),
-              setNavActive(false)
+              scrollTo(), setNavActive(false);
             }}
           >
             Blog
