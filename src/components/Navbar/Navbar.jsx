@@ -1,4 +1,6 @@
-import { FaSearch } from "react-icons/fa";
+import { FaBars, FaSearch } from "react-icons/fa";
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
 import "./Navbar.css";
 import Logo from "../../assets/Logo.svg";
 import { Link } from "react-router-dom";
@@ -7,7 +9,13 @@ import { useEffect, useState } from "react";
 const Navbar = () => {
   const [brand, setBrand] = useState([]);
   const [brandModal, setBrandModal] = useState(false);
+  const [active,setActive] = useState(false)
+  const [navActive,setNavActive] = useState(false)
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
+
+  const handleActive = () => {
+    setNavActive(!navActive)
+  }
 // get qismi
   const fetchData = async () => {
     try {
@@ -60,9 +68,11 @@ const Navbar = () => {
               />
             </span>
           </div>
-          <div className="nav-search">
+          <FaSearch onClick={() =>setActive(true)} className="search-icon hideSearch" />
+          <div className={`nav-search ${active ? "active" : ""}`}>
             <FaSearch className="search-icon" />
             <input type="text" className="search-input" placeholder="Search" />
+            <IoIosCloseCircleOutline onClick={() =>setActive(false)} className="close-icon" />
           </div>
         </div>
         <div className="nav-logo">
@@ -70,10 +80,14 @@ const Navbar = () => {
             <img src={Logo} className="logo-img" alt="" />
           </Link>
         </div>
-        <div className="nav-items">
+        <div className={`nav-items ${navActive ? "active" : ""}`}>
+          <IoClose className="nav-close" onClick={() => setNavActive(false)} />
           <Link
             to="/cars"
-            onClick={scrollTo}
+            onClick={() => {
+              scrollTo(),
+              setNavActive(false)
+            }}
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
           >
@@ -91,6 +105,7 @@ const Navbar = () => {
               {brand.map((item, index) => (
                 <Link to={`/cars/${item.id}`} onClick={() => {
                   setBrandModal(false)
+                  setNavActive(false)
                   window.scrollTo({top:0})
                 }} className="brand-modal-item" key={index}>
                   <div className="brand-logo">
@@ -112,7 +127,10 @@ const Navbar = () => {
             to="/services"
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
-            onClick={scrollTo}
+            onClick={() => {
+              scrollTo(),
+              setNavActive(false)
+            }}
           >
             Services
           </Link>
@@ -120,7 +138,10 @@ const Navbar = () => {
             to="/about-us"
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
-            onClick={scrollTo}
+            onClick={() => {
+              scrollTo(),
+              setNavActive(false)
+            }}
           >
             About Us
           </Link>
@@ -128,7 +149,10 @@ const Navbar = () => {
             to="/contacts"
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
-            onClick={scrollTo}
+            onClick={() => {
+              scrollTo(),
+              setNavActive(false)
+            }}
           >
             Contacts
           </Link>
@@ -136,7 +160,10 @@ const Navbar = () => {
             to="/blog"
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
-            onClick={scrollTo}
+            onClick={() => {
+              scrollTo(),
+              setNavActive(false)
+            }}
           >
             Blog
           </Link>
@@ -144,6 +171,7 @@ const Navbar = () => {
             +971(55)846 21 24
           </a>
         </div>
+        <FaBars className="bars-icon" onClick={handleActive} />
       </div>
     </div>
   );
