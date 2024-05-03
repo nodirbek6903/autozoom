@@ -75,7 +75,7 @@ const Footer = () => {
                 <Link to="/contact" className="footer-card2-title">
                   Contacts
                 </Link>
-                <span className="cars">
+                <span className="cars contact-des">
                   Elite 3 Sports City, Dubai 26W8 24J, United Arab Emirates
                 </span>
                 <span className="cars">+971 55 8462124</span>
@@ -108,7 +108,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <hr />
+            <hr className="footer-hr" />
             <div className="cards2-card2">
               <span className="license">
                 &copy; {new Date().getFullYear()} Auto Zoom Car Rental. United
