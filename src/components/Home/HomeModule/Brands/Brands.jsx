@@ -1,9 +1,10 @@
 import "./Brands.css";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { useEffect, useState } from "react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination,Grid } from "swiper/modules";
 
 import "swiper/css";
+import 'swiper/css/grid';
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Link } from "react-router-dom";
@@ -35,10 +36,14 @@ const Brands = () => {
       <div className="brands-section">
         <h1 className="card-title">Brands</h1>
         <Swiper
-          loop={false}
-          slidesPerView={3}
-          modules={[Navigation, Pagination]}
-          className="brands-cards"
+          slidesPerView={6}
+          grid={{
+            rows:2,
+            fill: 'row',
+          }}
+          spaceBetween={30}
+          modules={[Navigation, Pagination,Grid]}
+          className="swiper-cards"
         >
           {brands.map((item, index) => (
             <SwiperSlide className="swiper-slide" key={index}>
