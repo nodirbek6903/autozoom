@@ -92,6 +92,7 @@ const Navbar = () => {
                   setSearchValue(searchText);
                   navigate(`/cars/${searchText}keyword`);
                   setSearchValue("")
+                  setActive(false)
                 }
               }}
               value={searchValue}
