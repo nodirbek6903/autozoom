@@ -90,7 +90,7 @@ const Navbar = () => {
                 if (e.key === "Enter") {
                   const searchText = e.target.value;
                   setSearchValue(searchText);
-                  navigate(`/cars/${searchText}keyword`);
+                  navigate(`/cars/keyword/${searchText}`);
                   setSearchValue("")
                   setActive(false)
                 }
