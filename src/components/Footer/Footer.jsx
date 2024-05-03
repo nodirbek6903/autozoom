@@ -73,13 +73,13 @@ const Footer = () => {
                 ))}
               </div>
               <div className="footer-card2">
-                <Link to="/blog" className="footer-card2-title">
+                <Link to="/blog" onClick={handleClick} className="footer-card2-title">
                 {t("nav-item6")}
                 </Link>
-                <Link to="/service" className="footer-card2-title">
+                <Link to="/service" onClick={handleClick} className="footer-card2-title">
                 {t("nav-item3")}
                 </Link>
-                <Link to="/contact" className="footer-card2-title">
+                <Link to="/contact" onClick={handleClick} className="footer-card2-title">
                 {t("nav-item5")}
                 </Link>
                 <span className="cars contact-des">
@@ -90,13 +90,13 @@ const Footer = () => {
               </div>
               <div className="footer-card2 card2-card3">
                 <div className="footer-about">
-                  <Link to="/about-us" className="footer-about-title">
+                  <Link to="/about-us" onClick={handleClick} className="footer-about-title">
                   {t("nav-item4")}
                   </Link>
-                  <Link to="/our-team" className="footer-about-descr">
+                  <Link to="/our-team" onClick={handleClick} className="footer-about-descr">
                     {t("footer-about-item1")}
                   </Link>
-                  <Link to="/faq" className="footer-about-descr">
+                  <Link to="/faq" onClick={handleClick} className="footer-about-descr">
                   {t("footer-about-item2")}
                   </Link>
                 </div>

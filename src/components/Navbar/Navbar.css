@@ -111,7 +111,8 @@
   color: #fff;
   text-decoration: none;
   margin: 0 auto;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
 }
 .brand-modal .brand-modal-item .brand-logo {
   display: flex;
