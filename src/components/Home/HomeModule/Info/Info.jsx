@@ -3,9 +3,12 @@ import "./Info.css";
 import { CiCircleChevRight } from "react-icons/ci";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const Info = () => {
   const [carsData, setCarsData] = useState([]);
+  const {t} = useTranslation()
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
+  const selectedLanguage = localStorage.getItem("language");
   useEffect(() => {
     fetchDataCars();
   }, []);
@@ -32,34 +35,43 @@ const Info = () => {
         {carsData.map((car, carIndex) => (
           <div className="info-card" key={carIndex}>
             <div className="info-titles-btn">
-              <span className="info-title">
-                {car.category.name_en} Rental Dubai
-              </span>
+              {selectedLanguage === "en" ? (
+                <span className="info-title">
+                  {car.category.name_en} Rental Dubai
+                </span>
+              ) : (
+                <span className="info-title">{car.category.name_ru}</span>
+              )}
               <button className="title-btn">
-                See All{" "}
+                {t("home-info-btn")}
                 <Link style={{ color: "#fff" }} to={`/cars/${car.category_id}`}>
                   <CiCircleChevRight className="title-icon" />
                 </Link>
               </button>
             </div>
             <div className="card-slider">
-              <Swiper loop={false} slidesPerView={3} breakpoints={{
-                0: {
-                  slidesPerView: 1,
-                },
-                400: {
-                  slidesPerView:1
-                },
-                576:{
-                  slidesPerView:1
-                },
-                768:{
-                  slidesPerView:2
-                },
-                992:{
-                  slidesPerView:3
-                }
-              }} className="card-swiper">
+              <Swiper
+                loop={false}
+                slidesPerView={3}
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                  },
+                  400: {
+                    slidesPerView: 1,
+                  },
+                  576: {
+                    slidesPerView: 1,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                  },
+                  992: {
+                    slidesPerView: 3,
+                  },
+                }}
+                className="card-swiper"
+              >
                 {car.car_images.map((image, imageIndex) => (
                   <SwiperSlide key={imageIndex}>
                     <Link

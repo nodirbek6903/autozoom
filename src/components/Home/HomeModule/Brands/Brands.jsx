@@ -8,9 +8,11 @@ import "swiper/css/grid";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Brands = () => {
   const [brands, setBrands] = useState([]);
+  const {t} = useTranslation()
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
 
   useEffect(() => {
@@ -34,7 +36,7 @@ const Brands = () => {
   return (
     <div className="brands-container">
       <div className="brands-section">
-        <h1 className="card-title">Brands</h1>
+        <h1 className="card-title">{t("home-brand-title")}</h1>
         <Swiper
           breakpoints={{
             0: {

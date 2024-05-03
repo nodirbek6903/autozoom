@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom"
 import "./Main.css"
 import { CiCircleChevRight } from "react-icons/ci"
+import { useTranslation } from "react-i18next"
 const Main = () => {
+  const {t} = useTranslation()
   return (
     <div className="main-container">
       <div className="main-card">
-        <h2 className="main-title">TOP LUXURY CAR RENTAL DUBAI</h2>
+        <h2 className="main-title">{t("home-main-title")}</h2>
         <p className="main-desc">
-        Best sports car & supercar rental Dubai, Exclusive offers on luxury car rental Dubai Cheap price
+        {t("home-main-desc")}
         </p>
-        <Link to="/cars" className="main-btn">RENT A CAR DUBAI CATALOG <CiCircleChevRight className="main-icon" /></Link>
+        <Link to="/cars" className="main-btn">{t("home-main-btn")} <CiCircleChevRight className="main-icon" /></Link>
       </div>
     </div>
   )

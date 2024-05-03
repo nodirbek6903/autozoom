@@ -5,8 +5,10 @@ import "./Navbar.css";
 import Logo from "../../assets/Logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const {t,i18n} = useTranslation()
   const [brand, setBrand] = useState([]);
   const [brandModal, setBrandModal] = useState(false);
   const [active, setActive] = useState(false);
@@ -50,18 +52,24 @@ const Navbar = () => {
       <div className="container" onMouseLeave={() => setBrandModal(false)}>
         <div className="nav-lang-search">
           <div className="nav-lang">
-            <span className="lang-item">
+            <span className="lang-item" alt="en" onClick={() => {
+              localStorage.setItem("language", "en");
+              i18n.changeLanguage("en")
+            }}>
               <img
-                alt="United States"
+                alt="en"
                 width={30}
                 height={30}
                 className="lang-img"
                 src="http://purecatamphetamine.github.io/country-flag-icons/3x2/US.svg"
               />
             </span>
-            <span className="lang-item">
+            <span className="lang-item" alt="ru" onClick={() => {
+              localStorage.setItem("language", "ru");
+              i18n.changeLanguage("ru")
+            }}>
               <img
-                alt="United States"
+                alt="ru"
                 width={30}
                 height={30}
                 className="lang-img"
@@ -88,7 +96,7 @@ const Navbar = () => {
               }}
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
-              placeholder="Search"
+              placeholder={t("nav-search")}
             />
             <IoIosCloseCircleOutline
               onClick={() => setActive(false)}
@@ -111,10 +119,10 @@ const Navbar = () => {
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
           >
-            Cars
+            {t("nav-item1")}
           </Link>
           <span className="nav-item" onMouseEnter={() => setBrandModal(true)}>
-            Brand
+          {t("nav-item2")}
           </span>
           {brandModal && (
             <div
@@ -156,7 +164,7 @@ const Navbar = () => {
               scrollTo(), setNavActive(false);
             }}
           >
-            Services
+            {t("nav-item3")}
           </Link>
           <Link
             to="/about-us"
@@ -166,7 +174,7 @@ const Navbar = () => {
               scrollTo(), setNavActive(false);
             }}
           >
-            About Us
+            {t("nav-item4")}
           </Link>
           <Link
             to="/contacts"
@@ -176,7 +184,7 @@ const Navbar = () => {
               scrollTo(), setNavActive(false);
             }}
           >
-            Contacts
+            {t("nav-item5")}
           </Link>
           <Link
             to="/blog"
@@ -186,7 +194,7 @@ const Navbar = () => {
               scrollTo(), setNavActive(false);
             }}
           >
-            Blog
+            {t("nav-item6")}
           </Link>
           <a href="tel:+998903646903" target="_blank" className="nav-item">
             +971(55)846 21 24
