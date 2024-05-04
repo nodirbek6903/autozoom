@@ -25,6 +25,7 @@ const Info = () => {
         setCarsData(cars?.data);
         //sort qilish
         const sortedData = {}
+        
         cars?.data.forEach((car) => {
           if(!sortedData[car.category_id]){
             sortedData[car.category_id] = []
