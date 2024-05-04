@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 const Info = () => {
-  const [carsData, setCarsData] = useState([]);
+  // const [carsData, setCarsData] = useState([]);
   const [sortData,setSortData] = useState([])
   const {t} = useTranslation()
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
@@ -22,8 +22,8 @@ const Info = () => {
 
       if (response.ok) {
         const cars = await response.json();
-        setCarsData(cars?.data);
-        console.log(cars?.data);
+        // setCarsData(cars?.data);
+        // console.log(carsData);
         //sort qilish
         const sortedData = {}
         
