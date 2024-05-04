@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 const Info = () => {
   const [carsData, setCarsData] = useState([]);
+  const [sortData,setSortData] = useState([])
   const {t} = useTranslation()
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
   const selectedLanguage = localStorage.getItem("language");
@@ -22,29 +23,38 @@ const Info = () => {
       if (response.ok) {
         const cars = await response.json();
         setCarsData(cars?.data);
+        //sort qilish
+        const sortedData = {}
+        cars?.data.forEach((car) => {
+          if(!sortedData[car.category_id]){
+            sortedData[car.category_id] = []
+          }
+          sortedData[car.category_id].push(car)
+        })
+        setSortData(sortedData)
       }
     } catch (error) {
       console.log(error.message);
     }
   };
 
+
   return (
     <div className="info-container">
       <h1></h1>
       <div className="info-cards">
-        {carsData.map((car, carIndex) => (
-          <div className="info-card" key={carIndex}>
+        {Object.keys(sortData).map((categoryId) => (
+          <div className="info-card" key={categoryId}>
             <div className="info-titles-btn">
-              {selectedLanguage === "en" ? (
-                <span className="info-title">
-                  {car.category.name_en} Rental Dubai
-                </span>
-              ) : (
-                <span className="info-title">{car.category.name_ru}</span>
-              )}
+            <span className="info-title">
+                {selectedLanguage === "en"
+                  ? sortData[categoryId][0]?.category?.name_en
+                  : sortData[categoryId][0]?.category?.name_ru}{" "}
+                Rental Dubai
+              </span>
               <button className="title-btn">
                 {t("home-info-btn")}
-                <Link style={{ color: "#fff" }} to={`/cars/${car.category_id}`}>
+                <Link style={{ color: "#fff" }} to={`/cars/${categoryId}`}>
                   <CiCircleChevRight className="title-icon" />
                 </Link>
               </button>
@@ -72,14 +82,14 @@ const Info = () => {
                 }}
                 className="card-swiper"
               >
-                {car.car_images.map((image, imageIndex) => (
-                  <SwiperSlide key={imageIndex}>
+                {sortData[categoryId].map((car, index) => (
+                  <SwiperSlide key={index}>
                     <Link
-                      to={`/carsinfo/${image.car_id}`}
+                      to={`/carsinfo/${car.category_id}`}
                       className="cars-slide"
                     >
                       <img
-                        src={imgUrl + image.image.src}
+                        src={imgUrl + car.car_images[0]?.image?.src}
                         className="cars_image"
                         alt=""
                       />
