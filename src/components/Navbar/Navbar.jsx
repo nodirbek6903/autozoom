@@ -178,7 +178,7 @@ const Navbar = () => {
             {t("nav-item4")}
           </Link>
           <Link
-            to="/contacts"
+            to="/contact"
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
             onClick={() => {
