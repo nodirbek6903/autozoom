@@ -17,8 +17,6 @@ const Slider = () => {
         slidesPerView={1}
         loop={true}
         modules={[Navigation, Pagination]}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
         className="cars-swiper"
       >
         <SwiperSlide className="cars-img-container">

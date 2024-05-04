@@ -23,7 +23,6 @@ const Info = () => {
       if (response.ok) {
         const cars = await response.json();
         // setCarsData(cars?.data);
-        // console.log(carsData);
         //sort qilish
         const sortedData = {}
         
@@ -86,7 +85,7 @@ const Info = () => {
                 {sortData[categoryId].map((car, index) => (
                   <SwiperSlide key={index}>
                     <Link
-                      to={`/carsinfo/${car.category_id}`}
+                      to={`/carsinfo/${car.id}`}
                       className="cars-slide"
                     >
                       <img
