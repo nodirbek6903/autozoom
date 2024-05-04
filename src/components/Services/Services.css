@@ -73,3 +73,86 @@
 .service-icon{
     font-size: 35px;
 }
+
+@media screen and (max-width: 1000px) {
+    .service-location{
+        font-size: 14px;
+    }
+    .service-title {
+      font-size: 30px;
+    }
+    .services-card {
+      max-width: 300px;
+    }
+    .service-img {
+      width: 300px;
+    }
+    .service-about .about-title {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+    .service-about .about-desc {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+    .service-about .about-btn {
+      font-size: 16px;
+    }
+    .service-icon {
+      font-size: 30px;
+    }
+  }
+  @media screen and (max-width:800px) {
+    .service-location{
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+      .service-title {
+          font-size: 25px;
+          margin-left: 0;
+      }
+      .services-cards {
+          flex-direction: column;
+          gap: 20px;
+          margin-left: 0;
+      }
+      .services-card {
+          max-width: 100%;
+      }
+      .service-img {
+          width: 100%;
+          height: 300px;
+      }
+      .service-about .about-title {
+          font-size: 20px;
+      }
+      .service-about .about-desc {
+          font-size: 16px;
+      }
+      .service-about .about-btn {
+          font-size: 16px;
+      }
+      .service-icon {
+          font-size: 25px;
+      }    
+  }
+  @media screen and (max-width:400px) {
+      .service-container{
+          margin-top: 30px;
+      }
+      .service-img{
+          height: 200px;
+      }
+      .service-about .about-btn{
+          font-size: 14px;
+      }
+      .service-icon{
+          font-size: 20px;
+      }
+      .service-about .about-title{
+          font-size: 18px;
+      }
+      .service-about .about-desc{
+          font-size: 14px;
+      }
+  }
