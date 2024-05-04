@@ -76,7 +76,7 @@ const Footer = () => {
                 <Link to="/blog" onClick={handleClick} className="footer-card2-title">
                 {t("nav-item6")}
                 </Link>
-                <Link to="/service" onClick={handleClick} className="footer-card2-title">
+                <Link to="/services" onClick={handleClick} className="footer-card2-title">
                 {t("nav-item3")}
                 </Link>
                 <Link to="/contact" onClick={handleClick} className="footer-card2-title">
@@ -102,7 +102,6 @@ const Footer = () => {
                 </div>
                 <div className="footer-follows">
                   <h2
-                    style={{ cursor: "pointer" }}
                     className="footer-follows-title"
                   >
                     {t("footer-follows")}
