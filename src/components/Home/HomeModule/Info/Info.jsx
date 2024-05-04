@@ -23,6 +23,7 @@ const Info = () => {
       if (response.ok) {
         const cars = await response.json();
         setCarsData(cars?.data);
+        console.log(cars?.data);
         //sort qilish
         const sortedData = {}
         
@@ -42,7 +43,6 @@ const Info = () => {
 
   return (
     <div className="info-container">
-      <h1></h1>
       <div className="info-cards">
         {Object.keys(sortData).map((categoryId) => (
           <div className="info-card" key={categoryId}>
