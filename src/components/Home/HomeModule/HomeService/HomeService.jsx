@@ -10,18 +10,18 @@ const HomeService = () => {
 
   return (
     <div className="homeService-container">
-      <span className="service-title">Services</span>
-      <div className="services-cards">
+      <span className="home-service-title">Services</span>
+      <div className="home-services-cards">
         {
           serviceData.map((item,ind) => (
-            <div className="services-card" key={ind}>
-          <div className="service-img">
+            <div className="home-services-card" key={ind}>
+          <div className="home-service-img">
             <img src={item.img} alt="" />
           </div>
-          <div className="service-about">
-            <span className="about-title">{item.title}</span>
-            <span className="about-desc">{item.desc}</span>
-            <Link to={`/services/${item.link}`} onClick={scrollTop} className="about-btn">{item.btn} <CiCircleChevRight className="service-icon" /></Link>
+          <div className="home-service-about">
+            <span className="home-about-title">{item.title}</span>
+            <span className="home-about-desc">{item.desc}</span>
+            <Link to={`/services/${item.link}`} onClick={scrollTop} className="home-about-btn">{item.btn} <CiCircleChevRight className="home-service-icon" /></Link>
           </div>
         </div>
           ))
