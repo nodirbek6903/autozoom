@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import Faqs from "./components/Faqs/Faqs";
 import Services from "./components/Services/Services";
 import ServicePlans from './components/Services/ServicePlans/ServicePlans';
+import About from "./components/About/About";
 function App() {
   const { i18n } = useTranslation();
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/faq" element={<Faqs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:link" element={<ServicePlans />} />
+          <Route path="about-us" element={<About />} />
         </Routes>
         <Footer />
       </div>
