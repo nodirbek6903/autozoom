@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 const Info = () => {
   // const [carsData, setCarsData] = useState([]);
-  const [sortData,setSortData] = useState([])
-  const {t} = useTranslation()
+  const [sortData, setSortData] = useState([]);
+  const { t } = useTranslation();
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
   const selectedLanguage = localStorage.getItem("language");
   useEffect(() => {
@@ -24,21 +24,26 @@ const Info = () => {
         const cars = await response.json();
         // setCarsData(cars?.data);
         //sort qilish
-        const sortedData = {}
-        
+        const sortedData = {};
+
         cars?.data.forEach((car) => {
-          if(!sortedData[car.category_id]){
-            sortedData[car.category_id] = []
+          if (!sortedData[car.category_id]) {
+            sortedData[car.category_id] = [];
           }
-          sortedData[car.category_id].push(car)
-        })
-        setSortData(sortedData)
+          sortedData[car.category_id].push(car);
+        });
+        setSortData(sortedData);
       }
     } catch (error) {
       console.log(error.message);
     }
   };
 
+  const handleTop = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  };
 
   return (
     <div className="info-container">
@@ -46,7 +51,7 @@ const Info = () => {
         {Object.keys(sortData).map((categoryId) => (
           <div className="info-card" key={categoryId}>
             <div className="info-titles-btn">
-            <span className="info-title">
+              <span className="info-title">
                 {selectedLanguage === "en"
                   ? sortData[categoryId][0]?.category?.name_en
                   : sortData[categoryId][0]?.category?.name_ru}{" "}
@@ -54,7 +59,11 @@ const Info = () => {
               </span>
               <button className="title-btn">
                 {t("home-info-btn")}
-                <Link style={{ color: "#fff" }} to={`/cars/${categoryId}`}>
+                <Link
+                  onClick={handleTop}
+                  style={{ color: "#fff" }}
+                  to={`/cars/${categoryId}`}
+                >
                   <CiCircleChevRight className="title-icon" />
                 </Link>
               </button>
@@ -87,6 +96,7 @@ const Info = () => {
                     <Link
                       to={`/carsinfo/${car.id}`}
                       className="cars-slide"
+                      onClick={handleTop}
                     >
                       <img
                         src={imgUrl + car.car_images[0]?.image?.src}
