@@ -1,34 +1,68 @@
 import { FaSearch } from "react-icons/fa";
 import "./Navbar.css";
 import Logo from "../../assets/Logo.svg";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { FilteredCarsContext } from "../Cars/CarsProvider/CarsProvider";
 const Navbar = () => {
   const [brand, setBrand] = useState([]);
   const [brandModal, setBrandModal] = useState(false);
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
-// get qismi
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        "https://autoapi.dezinfeksiyatashkent.uz/api/brands"
-      );
+  const [searchQuery, setSearchQuery] = useState("");
+  const [Carss, SetCars] = useState([]);
+  const navigate = useNavigate();
 
-      if (response.ok) {
-        const responseData = await response.json();
-        setBrand(responseData.data);
-      }else{
-        console.log("Malumot olishda xatolik");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { filteredCars, setFilteredCars } = useContext(FilteredCarsContext);
+  const BASE_URL = "https://autoapi.dezinfeksiyatashkent.uz/api";
+
+  // Fetch brands
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://autoapi.dezinfeksiyatashkent.uz/api/brands"
+        );
+
+        if (response.ok) {
+          const responseData = await response.json();
+          setBrand(responseData.data);
+        } else {
+          console.log("Error fetching brands");
+        }
+      } catch (error) {
+        console.log("Error fetching brands:", error);
+      }
+    };
+
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/cars`);
+        SetCars(response.data || []);
+      } catch (error) {
+        console.error("Error fetching cars:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const search = (e) => {
+    e.preventDefault();
+    const filtered = Carss.data.filter(
+      (car) =>
+        car.brand.title.toLowerCase().trim() ===
+        searchQuery.toLowerCase().trim()
+    );
+    setFilteredCars(filtered);
+    navigate("/cars");
+    setSearchQuery("");
+  };
 
   return (
     <div className="nav-container">
@@ -56,7 +90,16 @@ const Navbar = () => {
           </div>
           <div className="nav-search">
             <FaSearch className="search-icon" />
-            <input type="text" className="search-input" placeholder="Search" />
+
+            <form onSubmit={search}>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </form>
           </div>
         </div>
         <div className="nav-logo">
@@ -81,7 +124,11 @@ const Navbar = () => {
               onMouseLeave={() => setBrandModal(false)}
             >
               {brand.map((item, index) => (
-                <Link to={`/cars/${item.id}`} className="brand-modal-item" key={index}>
+                <Link
+                  to={`/cars/${item.id}`}
+                  className="brand-modal-item"
+                  key={index}
+                >
                   <div className="brand-logo">
                     <img
                       src={imgUrl + item.image_src}

@@ -134,7 +134,6 @@
 
 .vehicle-img {
   max-width: 100%;
-  object-fit: cover;
 }
 
 .vehicle-list-title {
@@ -190,4 +189,12 @@
 .vehicle-list-btn:last-child {
   background-color: #2727e0;
   margin-left: 8px;
+}
+
+.vehicle-select {
+  border: 1.5px solid #c4c4c4;
+  border-radius: 7px;
+  color: #000;
+  outline: none;
+  padding: 15px 25px;
 }
