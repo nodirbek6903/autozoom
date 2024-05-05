@@ -69,10 +69,6 @@
   margin: 0 10px;
   cursor: pointer;
 }
-.nav-items .nav-item:hover{
-    color: #F1394D;
-}
-
 /* modal oyna */
 .brands{
     display:flex;

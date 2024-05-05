@@ -7,6 +7,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Link } from "react-router-dom";
 const Slider = () => {
   return (
     <div className="slider-container">
@@ -20,24 +21,24 @@ const Slider = () => {
         onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide className="cars-img-container">
-          <div className="img-container">
+          <Link to="/cars"  className="img-container">
             <img className="cars-image" src={Bmw1} alt="" />
-          </div>
+          </Link>
         </SwiperSlide>
         <SwiperSlide className="cars-img-container">
-          <div className="img-container">
+          <Link to="/cars"  className="img-container">
             <img className="cars-image" src={Bmw2} alt="" />
-          </div>
+          </Link>
         </SwiperSlide>
         <SwiperSlide className="cars-img-container">
-          <div className="img-container">
+          <Link to="/cars"  className="img-container">
             <img className="cars-image" src={Bmw3} alt="" />
-          </div>
+          </Link>
         </SwiperSlide>
         <SwiperSlide className="cars-img-container">
-          <div className="img-container">
+          <Link to="/cars"  className="img-container">
             <img className="cars-image" src={Bmw1} alt="" />
-          </div>
+          </Link>
         </SwiperSlide>
       </Swiper>
     </div>

@@ -18,7 +18,6 @@ const Navbar = () => {
       if (response.ok) {
         const responseData = await response.json();
         setBrand(responseData.data);
-        console.log(responseData.data);
       }else{
         console.log("Malumot olishda xatolik");
       }
