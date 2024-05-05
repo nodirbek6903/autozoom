@@ -8,24 +8,21 @@ const Services = () => {
 
   const selectedLang = localStorage.getItem("language");
 
-
   const scrollTop = () => {
     window.scrollTo({ top: 0 });
   };
 
   return (
     <div className="services-container">
-      {
-        selectedLang === "en" ? (
-          <Link to="/" className="service-location">
-        Luxury Cars for Rent in Dubai / Services
-      </Link>
-        ) : (
-          <Link to="/" className="service-location">
-        Аренда люксовых и спортивных авто / Услуги
-      </Link>
-        )
-      }
+      {selectedLang === "en" ? (
+        <Link to="/" className="service-location">
+          Luxury Cars for Rent in Dubai / Services
+        </Link>
+      ) : (
+        <Link to="/" className="service-location">
+          Аренда люксовых и спортивных авто / Услуги
+        </Link>
+      )}
       <span className="service-title">{t("nav-item3")}</span>
       <div className="services-cards">
         {serviceData.map((item, ind) => (
