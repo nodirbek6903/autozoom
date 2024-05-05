@@ -51,12 +51,15 @@ const Info = () => {
         {Object.keys(sortData).map((categoryId) => (
           <div className="info-card" key={categoryId}>
             <div className="info-titles-btn">
-              <span className="info-title">
-                {selectedLanguage === "en"
-                  ? sortData[categoryId][0]?.category?.name_en
-                  : sortData[categoryId][0]?.category?.name_ru}{" "}
-                Rental Dubai
-              </span>
+              {selectedLanguage === "en" ? (
+                <span className="info-title">
+                  {sortData[categoryId][0]?.category?.name_en} Rental Dubai
+                </span>
+              ) : (
+                <span className="info-title">
+                  {sortData[categoryId][0]?.category?.name_ru}
+                </span>
+              )}
               <button className="title-btn">
                 {t("home-info-btn")}
                 <Link
