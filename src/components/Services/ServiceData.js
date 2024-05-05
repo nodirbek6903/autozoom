@@ -3,11 +3,12 @@ import Img2 from "../../assets/serviceImg2.jpg"
 import ItemImg from "../../assets/service-item-img1.jpg"
 import ItemCheck from "../../assets/service-item-check.png"
 
+
 const serviceData = [
     {
       id:1,
       img:Img1,
-      title:"Sports Car Rental Dubai Style Tour in Dubai",
+      title:"home-service-card1-title",
       link: "sport_car_rent",
       serviceItems: [
         {
@@ -65,13 +66,13 @@ const serviceData = [
           itemBtn:"Book Now"
         },
       ],
-      desc:"Experience the thrill of a dune buggy tour in Dubai with us. We offer free hotel pick-up & drop-off service. Book now!",
-      btn:"Learn More"
+      desc:"home-service-card1-desc",
+      btn:"home-service-btn"
     },
     {
       id:2,
       img:Img2,
-      title:"Photoshoot with luxury car rental Dubai",
+      title:"home-service-card2-title",
       link:"photoshoot-with-luxury-car-in-dubai",
       serviceItems: [
         {
@@ -111,8 +112,8 @@ const serviceData = [
           itemBtn:"Book Now"
         },
       ],
-      desc:"Professional car photoshoot as an additional type of service at Auto Zoom Car Rental",
-      btn:"Learn More"
+      desc:"home-service-card2-desc",
+      btn:"home-service-btn"
     }
   ]
 

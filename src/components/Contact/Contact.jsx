@@ -2,26 +2,33 @@ import { Link } from "react-router-dom";
 import { CiLocationOn, CiPhone } from "react-icons/ci";
 import { SlEnvolopeLetter } from "react-icons/sl";
 import "./Contact.css";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
+  const selectedLang = localStorage.getItem("language");
+
   return (
     <div className="contact-container">
       <div className="contacts">
-        <Link to="/" className="contact-link">
-          Luxury Cars for Rent in Dubai / Contacts
-        </Link>
-        <span className="contact-title">HAVE ANY QUESTIONS?</span>
+        {selectedLang === "en" ? (
+          <Link to="/" className="contact-link">
+            Luxury Cars for Rent in Dubai / Contacts
+          </Link>
+        ) : (
+          <Link to="/" className="contact-link">
+            Аренда люксовых и спортивных авто / Контакты
+          </Link>
+        )}
+        <span className="contact-title">{t("contact-text1")}</span>
 
         <div className="texts">
-          <p className="contact-text">We would love to help</p>
-          <p className="contact-text">
-            Auto Zoom Car Rental Dubai, is the best luxury car rental Dubai
-            based company.
-          </p>
+          <p className="contact-text">{t("contact-text2")}</p>
+          <p className="contact-text">{t("contact-text3")}</p>
         </div>
         <div className="contact-cards">
           <div className="contact-card">
-            <span className="contact-card-title">Head office</span>
+            <span className="contact-card-title">{t("contact-text4")}</span>
             <div className="contact-card-link">
               <CiLocationOn className="link-icons" />
               <span className="links">
