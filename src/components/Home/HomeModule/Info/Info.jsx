@@ -73,7 +73,7 @@ const Info = () => {
             </div>
             <div className="card-slider">
               <Swiper
-                loop={false}
+                loop={sortData[categoryId].length > 3 ? true : false}
                 slidesPerView={3}
                 breakpoints={{
                   0: {
