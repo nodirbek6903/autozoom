@@ -32,7 +32,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/carsinfo/:id" element={<ParamsCars />} />
-          <Route path="/terms_and_conditions" element={<Conditions />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/terms_and_conditions" element={<Conditions />} />
           <Route path="/blog_info/:id" element={<BlogInfo />} />

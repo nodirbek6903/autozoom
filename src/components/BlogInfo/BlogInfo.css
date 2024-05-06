@@ -28,6 +28,7 @@
   font-size: var(--subtext-font-size);
 }
 .blog__breadcrumb a {
+  text-decoration: none;
   color: var(--font-color-secondary);
 }
 .blogInfo__img {
