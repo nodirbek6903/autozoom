@@ -91,8 +91,7 @@ const ServicePlans = () => {
               </div>
               <div className="item-btn">
                 <a
-                  href="tel: +971(55)8462124"
-                  target="_blank"
+                  href="tel:+971(55)8462124"
                   className="check-btn"
                 >
                   {t(item.itemBtn)}

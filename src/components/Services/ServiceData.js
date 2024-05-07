@@ -1,6 +1,8 @@
 import Img1 from "../../assets/serviceImg1.jpg"
 import Img2 from "../../assets/serviceImg2.jpg"
-import ItemImg from "../../assets/service-item-img1.jpg"
+import ItemImg1 from "../../assets/service-item-img1.jpg"
+import ItemImg2 from "../../assets/service-item2.jpg"
+import ItemImg3 from "../../assets/service-item3.jpg"
 import ItemCheck from "../../assets/service-item-check.png"
 
 
@@ -13,7 +15,7 @@ const serviceData = [
       serviceItems: [
         {
           id:1,
-          itemImage:ItemImg,
+          itemImage:ItemImg1,
           itemNumber: 1000,
           itemNumberText:"one person",
           basic:"basic",
@@ -31,15 +33,15 @@ const serviceData = [
         },
         {
           id:2,
-          itemImage:ItemImg,
+          itemImage:ItemImg2,
           itemNumber: 2000,
           itemNumberText:"two person",
-          basic:"basic",
+          basic:"Strong",
           itemText:"1asasa2334343434Dune buggies in Dubai Book your ride on the most exciting adventure activity to hit the desert and later pamper your self to a traditional Arabian hospitality.",
           itemTitle:"Package Inclusions:",
           itemCheckImage:ItemCheck,
           itemCheckText1:"Premium Transfer to camp",
-          itemCheckText2:"Dune Buggy riding 1.5 hours",
+          itemCheckText2:"Dune Buggy riding 2.5 hours",
           itemCheckText3:"Cuadro 15 min",
           itemCheckText4:"Falcone shoting",
           itemCheckText5:"Camel",
@@ -49,15 +51,15 @@ const serviceData = [
         },
         {
           id:3,
-          itemImage:ItemImg,
+          itemImage:ItemImg3,
           itemNumber: 3000,
           itemNumberText:"three person",
-          basic:"basic",
+          basic:"Premium",
           itemText:"121212334343434Dune buggies in Dubai Book your ride on the most exciting adventure activity to hit the desert and later pamper your self to a traditional Arabian hospitality.",
           itemTitle:"Package Inclusions:",
           itemCheckImage:ItemCheck,
           itemCheckText1:"Premium Transfer to camp",
-          itemCheckText2:"Dune Buggy riding 1.5 hours",
+          itemCheckText2:"Dune Buggy riding 3.5 hours",
           itemCheckText3:"Cuadro 15 min",
           itemCheckText4:"Falcone shoting",
           itemCheckText5:"Camel",
@@ -77,15 +79,15 @@ const serviceData = [
       serviceItems: [
         {
           id:1,
-          itemImage:ItemImg,
-          itemNumber: 232323,
-          itemNumberText:"two person",
+          itemImage:ItemImg1,
+          itemNumber: 2000,
+          itemNumberText:"one person",
           basic:"basic",
           itemText:"Dune buggies in Dubai Book your ride on the most exciting adventure activity to hit the desert and later pamper your self to a traditional Arabian hospitality.",
           itemTitle:"Package Inclusions:",
           itemCheckImage:ItemCheck,
           itemCheckText1:"Premium Transfer to camp",
-          itemCheckText2:"Dune Buggy riding 1.5 hours",
+          itemCheckText2:"Dune Buggy riding 4.5 hours",
           itemCheckText3:"Cuadro 15 min",
           itemCheckText4:"Falcone shoting",
           itemCheckText5:"Camel",
@@ -95,15 +97,15 @@ const serviceData = [
         },
         {
           id:2,
-          itemImage:ItemImg,
-          itemNumber: 232332,
-          itemNumberText:"tasaswo person",
-          basic:"basic",
-          itemText:"1asasa2334343434Dune buggies in Dubai Book your ride on the most exciting adventure activity to hit the desert and later pamper your self to a traditional Arabian hospitality.",
+          itemImage:ItemImg2,
+          itemNumber: 4000,
+          itemNumberText:"two person",
+          basic:"Premium",
+          itemText:"Adventure activity to hit the desert and later pamper your self to a traditional Arabian hospitality.",
           itemTitle:"Package Inclusions:",
           itemCheckImage:ItemCheck,
           itemCheckText1:"Premium Transfer to camp",
-          itemCheckText2:"Dune Buggy riding 1.5 hours",
+          itemCheckText2:"Dune Buggy riding 4.5 hours",
           itemCheckText3:"Cuadro 15 min",
           itemCheckText4:"Falcone shoting",
           itemCheckText5:"Camel",
