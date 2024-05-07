@@ -1,8 +1,8 @@
-import { Box, Skeleton } from "@mui/material";
 import { useEffect, useState } from "react";
 import { CiCircleChevRight } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "./Info.css"
 const Info = () => {
   const [carsData, setCarsData] = useState([]);
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";

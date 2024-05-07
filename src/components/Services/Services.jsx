@@ -1,4 +1,4 @@
-import "./Services.css";
+import "./services.css";
 import { CiCircleChevRight } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import serviceData from "./ServiceData";
