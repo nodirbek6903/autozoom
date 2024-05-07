@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { GLOBALURL } from "../..";
 import style from "../params.module.css";
 import AboutCars from "./about-cars";
+import SimilarOffers from "./similar-offers";
 
 const Slickdots = (props) => {
   const [tab, setTab] = useState(0);
@@ -140,6 +141,7 @@ const Slickdots = (props) => {
         <AboutCars />
 
       </Box>
+      <SimilarOffers />
     </Box>
   );
 };

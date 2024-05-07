@@ -8,10 +8,10 @@ const Info = () => {
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
 
   const { data: carsData, isLoading } = GetCars();
+
   carsData?.data?.sort((a, b) =>
     a.category.name_en.localeCompare(b.category.name_en)
   );
-
   const groupedItems = carsData?.data?.reduce((map, item) => {
     const categoryId = item.category.id;
     const categoryItems = map.get(categoryId) || [];
