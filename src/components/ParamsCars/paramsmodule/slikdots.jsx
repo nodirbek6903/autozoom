@@ -55,7 +55,7 @@ const Slickdots = (props) => {
             >
               {props?.data[0]?.car_images?.map((img, i) => (
                 <Box
-                  sx={{ width: "158px", height: "80px" }}
+                  sx={{ width: "158px", height: "80px",cursor:"pointer" }}
                   key={i}
                   onClick={() => handleTabClick(i)}
                 >
