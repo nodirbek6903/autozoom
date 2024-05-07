@@ -59,12 +59,17 @@
   border-radius: 20px;
   text-decoration: none;
 }
+.cars-slide-hover{
+  border: 1px solid #ffffff2f;
+}
+
 hr{
   color: #fff;
 }
+
 .cars-slide:hover {
   background-color: #9fa3a5;
-  background-image: linear-gradient(180deg, #9fa3a5 0%, #201f21 100%);
+  background-image: linear-gradient(180deg, #9fa3a5 0%, #201f21 100%)
 }
 .cars-slide .cars_image {
   width: 300px;

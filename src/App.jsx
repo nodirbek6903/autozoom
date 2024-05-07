@@ -16,6 +16,8 @@ import ServicePlans from "./components/Services/ServicePlans/ServicePlans";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 
+// import Services from "./components/Services/Services";
+// import ParamsService from "./components/Services/params-service";
 function App() {
   const { i18n } = useTranslation();
 
@@ -46,6 +48,8 @@ function App() {
             <Route path="/services/:link" element={<ServicePlans />} />
             <Route path="about-us" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            {/* <Route path="/services" element={<Services />} /> */}
+            {/* <Route path="/services/:id" element={<ParamsService />} /> */}
           </Routes>
         </FilteredCarsProvider>
         <Footer />

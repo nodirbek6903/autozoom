@@ -1,15 +1,11 @@
+import { Box, Skeleton } from "@mui/material";
 import { useEffect, useState } from "react";
-import "./Info.css";
 import { CiCircleChevRight } from "react-icons/ci";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { Swiper, SwiperSlide } from "swiper/react";
 const Info = () => {
-  // const [carsData, setCarsData] = useState([]);
-  const [sortData, setSortData] = useState([]);
-  const { t } = useTranslation();
+  const [carsData, setCarsData] = useState([]);
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
-  const selectedLanguage = localStorage.getItem("language");
   useEffect(() => {
     fetchDataCars();
   }, []);
@@ -22,87 +18,39 @@ const Info = () => {
 
       if (response.ok) {
         const cars = await response.json();
-        // setCarsData(cars?.data);
-        //sort qilish
-        const sortedData = {};
-
-        cars?.data.forEach((car) => {
-          if (!sortedData[car.category_id]) {
-            sortedData[car.category_id] = [];
-          }
-          sortedData[car.category_id].push(car);
-        });
-        setSortData(sortedData);
+        setCarsData(cars?.data);
       }
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  const handleTop = () => {
-    window.scrollTo({
-      top: 0,
-    });
-  };
-
   return (
     <div className="info-container">
       <div className="info-cards">
-        {Object.keys(sortData).map((categoryId) => (
-          <div className="info-card" key={categoryId}>
+        {carsData.map((car, carIndex) => (
+          <div className="info-card" key={carIndex}>
             <div className="info-titles-btn">
-              {selectedLanguage === "en" ? (
-                <span className="info-title">
-                  {sortData[categoryId][0]?.category?.name_en} Rental Dubai
-                </span>
-              ) : (
-                <span className="info-title">
-                  {sortData[categoryId][0]?.category?.name_ru}
-                </span>
-              )}
+              <span className="info-title">
+                {car.category.name_en} Rental Dubai
+              </span>
               <button className="title-btn">
-                {t("home-info-btn")}
-                <Link
-                  onClick={handleTop}
-                  style={{ color: "#fff" }}
-                  to={`/cars/${categoryId}`}
-                >
+                See All{" "}
+                <Link style={{ color: "#fff" }} to={`/cars/${car.category_id}`}>
                   <CiCircleChevRight className="title-icon" />
                 </Link>
               </button>
             </div>
             <div className="card-slider">
-              <Swiper
-                loop={sortData[categoryId].length > 3 ? true : false}
-                slidesPerView={3}
-                breakpoints={{
-                  0: {
-                    slidesPerView: 1,
-                  },
-                  400: {
-                    slidesPerView: 1,
-                  },
-                  576: {
-                    slidesPerView: 1,
-                  },
-                  768: {
-                    slidesPerView: 2,
-                  },
-                  992: {
-                    slidesPerView: 3,
-                  },
-                }}
-                className="card-swiper"
-              >
-                {sortData[categoryId].map((car, index) => (
-                  <SwiperSlide key={index}>
+              <Swiper loop={false} slidesPerView={3} className="card-swiper">
+                {car.car_images.map((image, imageIndex) => (
+                  <SwiperSlide key={imageIndex}>
                     <Link
-                      to={`/carsinfo/${car.id}`}
+                      to={`/carsinfo/${image.car_id}`}
                       className="cars-slide"
-                      onClick={handleTop}
                     >
                       <img
-                        src={imgUrl + car.car_images[0]?.image?.src}
+                        src={imgUrl + image.image.src}
                         className="cars_image"
                         alt=""
                       />
