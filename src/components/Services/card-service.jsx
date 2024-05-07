@@ -37,7 +37,7 @@ export default function CardService() {
       <Card sx={{ maxWidth: 345, backgroundColor: "transparent" }}>
         <CardMedia
           sx={{ height: 240 }}
-          image="/img/services/services1.jpg"
+          image="/img/services/services2.jpg"
           title="services img :)"
         />
         <CardContent
