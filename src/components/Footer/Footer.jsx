@@ -3,13 +3,16 @@ import Logo from "../../assets/Logo.svg";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 const Footer = () => {
   const [data, setData] = useState([]);
+  const {t} = useTranslation()
+  const selectedLang = localStorage.getItem("language")
 
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://autoapi.dezinfeksiyatashkent.uz/api/brands"
+        "https://autoapi.dezinfeksiyatashkent.uz/api/categories"
       );
 
       if (response.ok) {
@@ -22,6 +25,12 @@ const Footer = () => {
       console.log(error);
     }
   };
+
+  const  handleClick = () => {
+    window.scrollTo({
+      top:0
+    })
+  }
 
   useEffect(() => {
     fetchData();
@@ -37,62 +46,65 @@ const Footer = () => {
                 <img src={Logo} alt="" />
               </Link>
             </div>
-            <h2 className="footer-title">LUXURY CAR RENTAL IN DUBAI</h2>
+            <h2 className="footer-title">{t("footer-card1-title")}</h2>
             <span className="footer-descr">
-              Rent sports and luxury cars directly without intermediaries. Rent
-              a car in Dubai with Auto Zoom Car Rental - safety and driving
-              pleasure
+              {t("footer-card1-desc")}
             </span>
             <a href="tel:+998903646903" target="_blank" className="footer-btn">
-              Get Best Offer
+              {t("footer-card1-btn")}
             </a>
           </div>
           <div className="footer-card2">
             <div className="footer-cards2 cards2-card1">
               <div className="footer-card2">
                 <Link to="/cars" className="footer-card2-title">
-                  Cars
+                  {t("nav-item1")}
                 </Link>
                 {data.map((item, index) => (
-                  <Link to={`/cars/${item.id}`} className="cars" key={index}>
-                    {item.title}
+                  selectedLang === "en" ? (
+                    <Link to={`/cars/${item.id}`} className="cars" key={index}>
+                    {item.name_en}
                   </Link>
+                  ) : (
+                    <Link to={`/cars/${item.id}`} className="cars" key={index}>
+                    {item.name_ru}
+                  </Link>
+                  )
                 ))}
               </div>
               <div className="footer-card2">
-                <Link to="/blog" className="footer-card2-title">
-                  Blog
+                <Link to="/blog" onClick={handleClick} className="footer-card2-title">
+                {t("nav-item6")}
                 </Link>
-                <Link to="/service" className="footer-card2-title">
-                  Services
+                <Link to="/services" onClick={handleClick} className="footer-card2-title">
+                {t("nav-item3")}
                 </Link>
-                <Link to="/contact" className="footer-card2-title">
-                  Contacts
+                <Link to="/contact" onClick={handleClick} className="footer-card2-title">
+                {t("nav-item5")}
                 </Link>
-                <span className="cars">
+                <span className="cars contact-des">
                   Elite 3 Sports City, Dubai 26W8 24J, United Arab Emirates
                 </span>
                 <span className="cars">+971 55 8462124</span>
-                <span className="cars">Working hours: 24/7</span>
+                <span className="cars">{t("footer-support")}: 24/7</span>
               </div>
               <div className="footer-card2 card2-card3">
                 <div className="footer-about">
-                  <Link to="/about-us" className="footer-about-title">
-                    About Us
+                  <Link to="/about-us" onClick={handleClick} className="footer-about-title">
+                  {t("nav-item4")}
                   </Link>
-                  <Link to="/our-team" className="footer-about-descr">
-                    Our Team
+                  <Link to="/our-team" onClick={handleClick} className="footer-about-descr">
+                    {t("footer-about-item1")}
                   </Link>
-                  <Link to="/faq" className="footer-about-descr">
-                    Faq
+                  <Link to="/faq" onClick={handleClick} className="footer-about-descr">
+                  {t("footer-about-item2")}
                   </Link>
                 </div>
                 <div className="footer-follows">
                   <h2
-                    style={{ cursor: "pointer" }}
                     className="footer-follows-title"
                   >
-                    Follow Us
+                    {t("footer-follows")}
                   </h2>
                   <div className="footer-follows-icons">
                     <FaInstagram className="footer-icon instagram" />
@@ -102,14 +114,13 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <hr />
+            <hr className="footer-hr" />
             <div className="cards2-card2">
               <span className="license">
-                &copy; {new Date().getFullYear()} Auto Zoom Car Rental. United
-                Arab Emirates.
+                &copy; {new Date().getFullYear()} {t("footer-card3-text1")}
               </span>
-              <Link to="/terms_and_conditions" className="conditions">
-                Terms and Conditions
+              <Link to="/terms_and_conditions" onClick={handleClick} className="conditions">
+                {t("footer-card3-text2")}
               </Link>
             </div>
           </div>

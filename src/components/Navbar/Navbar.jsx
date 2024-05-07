@@ -1,13 +1,22 @@
-import { FaSearch } from "react-icons/fa";
+import { FaBars, FaSearch } from "react-icons/fa";
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
 import "./Navbar.css";
 import Logo from "../../assets/Logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { FilteredCarsContext } from "../Cars/CarsProvider/CarsProvider";
+
+import { useTranslation } from "react-i18next";
+
 const Navbar = () => {
+  const { t, i18n } = useTranslation();
   const [brand, setBrand] = useState([]);
   const [brandModal, setBrandModal] = useState(false);
+  const [active, setActive] = useState(false);
+  const [navActive, setNavActive] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
   const [searchQuery, setSearchQuery] = useState("");
   const [Carss, SetCars] = useState([]);
@@ -17,6 +26,32 @@ const Navbar = () => {
   const BASE_URL = "https://autoapi.dezinfeksiyatashkent.uz/api";
 
   // Fetch brands
+
+  const handleActive = () => {
+    setNavActive(!navActive);
+  };
+  // get qismi
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://autoapi.dezinfeksiyatashkent.uz/api/brands"
+      );
+
+      if (response.ok) {
+        const responseData = await response.json();
+        setBrand(responseData.data);
+      } else {
+        console.log("Malumot olishda xatolik");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const scrollTo = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -69,18 +104,32 @@ const Navbar = () => {
       <div className="container" onMouseLeave={() => setBrandModal(false)}>
         <div className="nav-lang-search">
           <div className="nav-lang">
-            <span className="lang-item">
+            <span
+              className="lang-item"
+              alt="en"
+              onClick={() => {
+                localStorage.setItem("language", "en");
+                i18n.changeLanguage("en");
+              }}
+            >
               <img
-                alt="United States"
+                alt="en"
                 width={30}
                 height={30}
                 className="lang-img"
                 src="http://purecatamphetamine.github.io/country-flag-icons/3x2/US.svg"
               />
             </span>
-            <span className="lang-item">
+            <span
+              className="lang-item"
+              alt="ru"
+              onClick={() => {
+                localStorage.setItem("language", "ru");
+                i18n.changeLanguage("ru");
+              }}
+            >
               <img
-                alt="United States"
+                alt="ru"
                 width={30}
                 height={30}
                 className="lang-img"
@@ -88,7 +137,11 @@ const Navbar = () => {
               />
             </span>
           </div>
-          <div className="nav-search">
+          <FaSearch
+            onClick={() => setActive(true)}
+            className="search-icon hideSearch"
+          />
+          <div className={`nav-search ${active ? "active" : ""}`}>
             <FaSearch className="search-icon" />
 
             <form onSubmit={search}>
@@ -100,32 +153,47 @@ const Navbar = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </form>
+
+            <IoIosCloseCircleOutline
+              onClick={() => setActive(false)}
+              className="close-icon"
+            />
           </div>
         </div>
         <div className="nav-logo">
-          <Link to="/">
+          <Link to="/" onClick={scrollTo}>
             <img src={Logo} className="logo-img" alt="" />
           </Link>
         </div>
-        <div className="nav-items">
+        <div className={`nav-items ${navActive ? "active" : ""}`}>
+          <IoClose className="nav-close" onClick={() => setNavActive(false)} />
           <Link
             to="/cars"
+            onClick={() => {
+              scrollTo(), setNavActive(false);
+            }}
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
           >
-            Cars
+            {t("nav-item1")}
           </Link>
           <span className="nav-item" onMouseEnter={() => setBrandModal(true)}>
-            Brand
+            {t("nav-item2")}
           </span>
           {brandModal && (
             <div
               className="brand-modal"
               onMouseLeave={() => setBrandModal(false)}
+              onClick={() => setBrandModal(false)}
             >
               {brand.map((item, index) => (
                 <Link
                   to={`/cars/${item.id}`}
+                  onClick={() => {
+                    setBrandModal(false);
+                    setNavActive(false);
+                    window.scrollTo({ top: 0 });
+                  }}
                   className="brand-modal-item"
                   key={index}
                 >
@@ -148,34 +216,47 @@ const Navbar = () => {
             to="/services"
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
+            onClick={() => {
+              scrollTo(), setNavActive(false);
+            }}
           >
-            Services
+            {t("nav-item3")}
           </Link>
           <Link
             to="/about-us"
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
+            onClick={() => {
+              scrollTo(), setNavActive(false);
+            }}
           >
-            About Us
+            {t("nav-item4")}
           </Link>
           <Link
-            to="/contacts"
+            to="/contact"
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
+            onClick={() => {
+              scrollTo(), setNavActive(false);
+            }}
           >
-            Contacts
+            {t("nav-item5")}
           </Link>
           <Link
             to="/blog"
             className="nav-item"
             onMouseEnter={() => setBrandModal(false)}
+            onClick={() => {
+              scrollTo(), setNavActive(false);
+            }}
           >
-            Blog
+            {t("nav-item6")}
           </Link>
           <a href="tel:+998903646903" target="_blank" className="nav-item">
             +971(55)846 21 24
           </a>
         </div>
+        <FaBars className="bars-icon" onClick={handleActive} />
       </div>
     </div>
   );

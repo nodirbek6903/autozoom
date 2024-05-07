@@ -1,8 +1,9 @@
 import "./Slider.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Bmw1 from "../../../../assets/bmw.png";
-import Bmw2 from "../../../../assets/bmw2.png";
-import Bmw3 from "../../../../assets/bmw3.png";
+import Slider1 from "../../../../assets/slider1.png";
+import Slider2 from "../../../../assets/slider2.png";
+import Slider3 from "../../../../assets/slider3.png";
+import Slider4 from "../../../../assets/slider4.png";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -13,31 +14,29 @@ const Slider = () => {
     <div className="slider-container">
       <Swiper
         navigation={true}
-        slidesPerView={3}
+        slidesPerView={1}
         loop={true}
-        pagination={{clickable:true}}
         modules={[Navigation, Pagination]}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        className="cars-swiper"
       >
         <SwiperSlide className="cars-img-container">
           <Link to="/cars"  className="img-container">
-            <img className="cars-image" src={Bmw1} alt="" />
+            <img className="cars-image" src={Slider1} alt="" />
           </Link>
         </SwiperSlide>
         <SwiperSlide className="cars-img-container">
           <Link to="/cars"  className="img-container">
-            <img className="cars-image" src={Bmw2} alt="" />
+            <img className="cars-image" src={Slider2} alt="" />
           </Link>
         </SwiperSlide>
         <SwiperSlide className="cars-img-container">
           <Link to="/cars"  className="img-container">
-            <img className="cars-image" src={Bmw3} alt="" />
+            <img className="cars-image" src={Slider3} alt="" />
           </Link>
         </SwiperSlide>
         <SwiperSlide className="cars-img-container">
           <Link to="/cars"  className="img-container">
-            <img className="cars-image" src={Bmw1} alt="" />
+            <img className="cars-image" src={Slider4} alt="" />
           </Link>
         </SwiperSlide>
       </Swiper>

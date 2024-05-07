@@ -83,7 +83,7 @@
 }
 .img-cont{
     width: 60%;
-    max-height: 250px;
+    height: 250px;
 }
 .img-cont img{
     height: 100%;
@@ -113,4 +113,146 @@
     color: #fff;
     font-size: 20px;
     text-decoration: none;
+}
+@media screen and (max-width:1000px) {
+    .category-title{
+        font-size: 30px;
+    }
+    .category-desc{
+        font-size: 18px;
+    }
+    .content-title{
+        font-size: 25px;
+    }
+    .video-desc{
+        font-size: 16px;
+    }
+    .video-btn{
+        font-size: 18px;
+    }
+    .video-icon{
+        font-size: 25px;
+    }
+    .lambo-title{
+        font-size: 30px;
+    }
+    .lambo-desc{
+        font-size: 18px;
+    }
+    .lambo-btn{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width:800px) {
+    .category-title{
+        font-size: 25px;
+    }
+    .category-desc{
+        font-size: 16px;
+    }
+    .content-title{
+        font-size: 20px;
+    }
+    .video-desc{
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+    .video-btn{
+        font-size: 16px;
+    }
+    .video-icon{
+        font-size: 20px;
+    }
+    .lambo-title{
+        font-size: 25px;
+    }
+    .lambo-desc{
+        font-size: 16px;
+    }
+    .lambo-btn{
+        font-size: 16px;
+    }
+    .youtubeCard{
+        flex-direction: column;
+    }
+    .youtube-container{
+        width: 100%;
+    }
+    .video-content{
+        width: 90%;
+        margin: 0 auto;
+        gap: 20px;
+    }
+}
+@media screen and (max-width:600px) {
+    .category-title{
+        font-size: 20px;
+    }
+    .category-desc{
+        font-size: 14px;
+    }
+    .content-title{
+        font-size: 18px;
+    }
+    .video-desc{
+        font-size: 12px;
+    }
+    .video-btn{
+        font-size: 14px;
+    }
+    .video-icon{
+        font-size: 18px;
+    }
+    .lambo-cont{
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+    .lambo-content{
+        width: 90%;
+        margin: 0 auto;
+        gap: 20px;
+    }
+    .img-cont{
+        width: 100%;
+        max-height: 200px;
+    }
+    .lambo-title{
+        font-size: 20px;
+    }
+    .lambo-desc{
+        font-size: 14px;
+    }
+    .lambo-btn{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width:400px) {
+    .category-title{
+        font-size: 18px;
+    }
+    .category-desc{
+        font-size: 12px;
+    }
+    .content-title{
+        font-size: 16px;
+    }
+    .video-desc{
+        font-size: 10px;
+    }
+    .video-btn{
+        font-size: 12px;
+    }
+    .video-icon{
+        font-size: 16px;
+    }
+    .lambo-title{
+        font-size: 18px;
+    }
+    .lambo-desc{
+        font-size: 12px;
+    }
+    .lambo-btn{
+        font-size: 12px;
+    }
 }

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./Cars.css";
 import { useEffect, useState, useContext } from "react";
 import { CarsList } from "./CarsList/CarsList";
@@ -45,6 +45,7 @@ export const Cars = () => {
       try {
         const response = await axios.get(`${BASE_URL}/cars`);
         SetCars(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching cars:", error);
       }
@@ -297,9 +298,11 @@ export const Cars = () => {
                   <CarsList
                     key={index}
                     src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item.car_images[0].image.src}`}
-                    name={item.model.name}
+                    name={item.brand.title}
+                    model={item.model.name}
                     slug={item.price_in_aed}
                     text={item.price_in_usd}
+                    id={item.id}
                   />
                 ))
               : Cars &&
@@ -307,9 +310,11 @@ export const Cars = () => {
                   <CarsList
                     key={index}
                     src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item.car_images[0].image.src}`}
-                    name={item.model.name}
+                    name={item.brand.title}
+                    model={item.model.name}
                     slug={item.price_in_aed}
                     text={item.price_in_usd}
+                    id={item.id}
                   />
                 ))}
           </ul>
