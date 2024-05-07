@@ -1,13 +1,13 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body{
   background: #111219;
 }
 
-<<<<<<< HEAD
 a {
   text-decoration: none;
 }
@@ -29,10 +29,4 @@ a {
     --subtext-font-size: 13px;
   }
 }  
-=======
-.container-global{
-  max-width: 1400px;
-  margin: 0 auto;
 
-}
->>>>>>> 747d26639e72889cc288891d324add79b4f78749
