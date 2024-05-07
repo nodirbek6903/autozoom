@@ -1,0 +1,17 @@
+.ser_card_link {
+    align-items: center !important;
+    color: #fff  !important;
+    display: flex  !important;
+    font-size: 15px  !important;
+    font-weight: 700  !important;
+    height: 32px  !important;
+    justify-content: space-evenly  !important;
+    max-width: 168px  !important;
+    text-decoration: none  !important;
+    transition: all 1s ease-out;   
+     gap: 20px  !important;
+}
+
+.ser_card_link:hover {
+    width: 175px !important;
+}
