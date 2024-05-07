@@ -110,6 +110,12 @@ const Faq = () => {
     }
   }
 
+  const handleTop = () => {
+    window.scrollTo({
+      top:0
+    })
+  }
+
   useEffect(() => {
     fetchLocation()
     fetchCity()
@@ -164,7 +170,7 @@ const Faq = () => {
           <div className="location-card">
             {
               location.map((item,index) => (
-                <Link to={`/cars/${item.id}`} className="location-item" key={index}>{item.name}</Link>
+                <Link to={`/cars/${item.id}`} className="location-item" onClick={handleTop} key={index}>{item.name}</Link>
               ))
             }
           </div>
@@ -174,7 +180,7 @@ const Faq = () => {
           <div className="city-card">
             {
               city.map((city,index) => (
-                <Link to={`/cars/${city.id}`} className="city-item" key={index}>{city.name}</Link>
+                <Link to={`/cars/${city.id}`} className="city-item" onClick={handleTop} key={index}>{city.name}</Link>
               ))
             }
           </div>

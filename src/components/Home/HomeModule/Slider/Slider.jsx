@@ -10,6 +10,13 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Link } from "react-router-dom";
 const Slider = () => {
+
+  const handleTop = () => {
+    window.scrollTo({
+      top:0
+    })
+  }
+
   return (
     <div className="slider-container">
       <Swiper
@@ -20,22 +27,22 @@ const Slider = () => {
         className="cars-swiper"
       >
         <SwiperSlide className="cars-img-container">
-          <Link to="/cars"  className="img-container">
+          <Link to="/cars" onClick={handleTop}  className="img-container">
             <img className="cars-image" src={Slider1} alt="" />
           </Link>
         </SwiperSlide>
         <SwiperSlide className="cars-img-container">
-          <Link to="/cars"  className="img-container">
+          <Link to="/cars" onClick={handleTop}  className="img-container">
             <img className="cars-image" src={Slider2} alt="" />
           </Link>
         </SwiperSlide>
         <SwiperSlide className="cars-img-container">
-          <Link to="/cars"  className="img-container">
+          <Link to="/cars" onClick={handleTop}  className="img-container">
             <img className="cars-image" src={Slider3} alt="" />
           </Link>
         </SwiperSlide>
         <SwiperSlide className="cars-img-container">
-          <Link to="/cars"  className="img-container">
+          <Link to="/cars" onClick={handleTop}  className="img-container">
             <img className="cars-image" src={Slider4} alt="" />
           </Link>
         </SwiperSlide>

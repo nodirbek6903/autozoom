@@ -5,6 +5,13 @@ import { CiCircleChevRight } from "react-icons/ci";
 import { useTranslation } from "react-i18next";
 const Categories = () => {
   const {t} = useTranslation()
+
+  const handleTop = () => {
+    window.scrollTo({
+      top:0
+    })
+  }
+
   return (
     <div className="category-container">
       <div className="category-cards1">
@@ -41,7 +48,7 @@ const Categories = () => {
           <span className="video-desc">
             {t("home-category-card2-desc1")}
           </span>
-          <Link to="/cars" className="video-btn">{t("home-category-card2-btn1")} <CiCircleChevRight className="video-icon" /> </Link>
+          <Link to="/cars" onClick={handleTop} className="video-btn">{t("home-category-card2-btn1")} <CiCircleChevRight className="video-icon" /> </Link>
         </div>
         </div>
         <div className="category-card2 lambo-cont">
@@ -51,7 +58,7 @@ const Categories = () => {
           <div className="lambo-content">
             <span className="lambo-title">{t("home-category-card2-title2")}</span>
             <span className="lambo-desc">{t("home-category-card2-desc2")}</span>
-            <Link to="/cars" className="lambo-btn">{t("home-category-card2-btn2")} <CiCircleChevRight className="video-icon" /></Link>
+            <Link to="/cars" onClick={handleTop} className="lambo-btn">{t("home-category-card2-btn2")} <CiCircleChevRight className="video-icon" /></Link>
           </div>
         </div>
       </div>

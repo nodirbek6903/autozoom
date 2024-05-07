@@ -25,6 +25,12 @@ const Info = () => {
     }
   };
 
+  const handleTop = () => {
+    window.scrollTo({
+      top:0
+    })
+  }
+
   return (
     <div className="info-container">
       <div className="info-cards">
@@ -36,7 +42,7 @@ const Info = () => {
               </span>
               <button className="title-btn">
                 See All{" "}
-                <Link style={{ color: "#fff" }} to={`/cars/${car.category_id}`}>
+                <Link style={{ color: "#fff" }} to={`/cars/${car.category_id}`} onClick={handleTop}>
                   <CiCircleChevRight className="title-icon" />
                 </Link>
               </button>
@@ -48,6 +54,7 @@ const Info = () => {
                     <Link
                       to={`/carsinfo/${image.car_id}`}
                       className="cars-slide"
+                      onClick={handleTop}
                     >
                       <img
                         src={imgUrl + image.image.src}

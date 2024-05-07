@@ -42,7 +42,7 @@ const Footer = () => {
         <div className="footer-cards">
           <div className="footer-card1">
             <div className="footer-logo">
-              <Link to="/">
+              <Link to="/" onClick={handleClick}>
                 <img src={Logo} alt="" />
               </Link>
             </div>
@@ -57,16 +57,16 @@ const Footer = () => {
           <div className="footer-card2">
             <div className="footer-cards2 cards2-card1">
               <div className="footer-card2">
-                <Link to="/cars" className="footer-card2-title">
+                <Link to="/cars" className="footer-card2-title" onClick={handleClick}>
                   {t("nav-item1")}
                 </Link>
                 {data.map((item, index) => (
                   selectedLang === "en" ? (
-                    <Link to={`/cars/${item.id}`} className="cars" key={index}>
+                    <Link to={`/cars/${item.id}`} onClick={handleClick} className="cars" key={index}>
                     {item.name_en}
                   </Link>
                   ) : (
-                    <Link to={`/cars/${item.id}`} className="cars" key={index}>
+                    <Link to={`/cars/${item.id}`} onClick={handleClick} className="cars" key={index}>
                     {item.name_ru}
                   </Link>
                   )

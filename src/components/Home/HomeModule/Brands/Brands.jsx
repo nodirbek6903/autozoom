@@ -33,6 +33,12 @@ const Brands = () => {
     }
   };
 
+  const handleTop = () => {
+    window.scrollTo({
+      top:0
+    })
+  }
+
   return (
     <div className="brands-container">
       <div className="brands-section">
@@ -86,7 +92,7 @@ const Brands = () => {
         >
           {brands.map((item, index) => (
             <SwiperSlide className="swiper-slide" key={index}>
-              <Link to={`/cars/${item.id}`} className="swiper-card">
+              <Link to={`/cars/${item.id}`} onClick={handleTop} className="swiper-card">
                 <img
                   src={imgUrl + item.image_src}
                   className="brand-img"
