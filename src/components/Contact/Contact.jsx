@@ -37,7 +37,7 @@ const Contact = () => {
             </div>
             <div className="contact-card-link">
               <CiPhone className="link-icons" />
-              <a href="tel:+971558462124" target="_blank" className="links">
+              <a href="tel:+971558462124" className="links">
                 +971 (55) 846 21 24
               </a>
             </div>
@@ -45,7 +45,6 @@ const Contact = () => {
               <SlEnvolopeLetter className="link-icons" />
               <a
                 href="mailto:office@autozoomrental.com"
-                target="_blank"
                 className="links"
               >
                 office@autozoomrental.com
