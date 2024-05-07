@@ -50,7 +50,7 @@ const Footer = () => {
             <span className="footer-descr">
               {t("footer-card1-desc")}
             </span>
-            <a href="tel:+998903646903" target="_blank" className="footer-btn">
+            <a href="tel:+998903646903" className="footer-btn">
               {t("footer-card1-btn")}
             </a>
           </div>
