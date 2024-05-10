@@ -7,14 +7,15 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import GetCars from "../../../../api/cars/get-cars.api";
 
 const Brands = () => {
   const [brands, setBrands] = useState([]);
   const { t } = useTranslation();
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
-
+  const { id } = useParams();
   useEffect(() => {
     fetchData();
   }, []);
@@ -38,6 +39,11 @@ const Brands = () => {
       top: 0,
     });
   };
+  // const getCars = GetCars();
+  // const Cars = getCars.data;
+
+  // const test = Cars.data.filter((item) => item.brand_id === id);
+  // console.log(test);
 
   return (
     <div className="brands-container">
