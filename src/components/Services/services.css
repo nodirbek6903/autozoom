@@ -1,4 +1,4 @@
-/* .ser_card_link {
+.ser_card_link {
     align-items: center !important;
     color: #fff  !important;
     display: flex  !important;
@@ -14,7 +14,7 @@
 
 .ser_card_link:hover {
     width: 175px !important;
-} */
+}
 .services-container {
     width: 100%;
     max-width: 1920px;
