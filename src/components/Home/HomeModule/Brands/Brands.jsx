@@ -85,7 +85,7 @@ const Brands = () => {
                 fill: "row",
               }
             },
-          }}  
+          }}
           pagination={true}       
           modules={[Navigation, Pagination, Grid]}
           className="swiper-cards"
