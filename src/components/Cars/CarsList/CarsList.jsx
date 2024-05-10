@@ -4,8 +4,8 @@ import { Link, useParams } from "react-router-dom";
 
 export const CarsList = ({ src, name, slug, text, model, id }) => {
   return (
-    <Link to={`/carsinfo/${id}`}>
-      <li className="vehicle-list">
+    <Link className="vehicle-list" to={`/carsinfo/${id}`}>
+      <li>
         <img
           className="vehicle-img"
           src={src}

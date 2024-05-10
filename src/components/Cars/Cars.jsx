@@ -1,84 +1,55 @@
 import { Link, useParams } from "react-router-dom";
-import "./Cars.css";
+import { GiSettingsKnobs } from "react-icons/gi";
+import { GoArrowLeft } from "react-icons/go";
 import { useEffect, useState, useContext } from "react";
 import { CarsList } from "./CarsList/CarsList";
 import axios from "axios";
 import { FilteredCarsContext } from "./CarsProvider/CarsProvider";
 import { useCarsProps } from "./useCarsProps";
+import { useTranslation } from "react-i18next";
+import "./Cars.css";
+import GetCategories from "../../api/category/category";
+import GetBrands from "../../api/brand/brands";
+import GetModel from "../../api/model/model";
+import GetCars from "../../api/cars/get-cars.api";
 
 export const Cars = () => {
   const { rentprice, BASE_URL } = useCarsProps();
   const [checked, setChecked] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const [Brands, setBrands] = useState();
   const [selectedBrands, setSelectedBrands] = useState([]);
 
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [category, setCategory] = useState();
 
-  const [model, setModel] = useState();
   const [selectedModels, setSelectedModels] = useState([]);
   const [selectModel, setSelectModels] = useState([]);
 
-  const [Cars, SetCars] = useState();
   const [FilterData, SetFilterData] = useState();
 
   const [price, setPrice] = useState();
   const [day, setDay] = useState();
+  const { t } = useTranslation();
+
+  const getCategory = GetCategories();
+  const category = getCategory.data;
+
+  const getBrands = GetBrands();
+  const Brands = getBrands.data;
+
+  const getModels = GetModel();
+  const model = getModels.data;
+
+  const getCars = GetCars();
+  const Cars = getCars.data;
+
+  let { id } = useParams();
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
 
   const { filteredCars } = useContext(FilteredCarsContext);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/models`);
-        setModel(response.data);
-      } catch (error) {
-        console.error("Error fetching cars:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    const Data = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/cars`);
-        SetCars(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error("Error fetching cars:", error);
-      }
-    };
-
-    Data();
-  }, []);
-
-  useEffect(() => {
-    const Data = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/categories`);
-        setCategory(response.data);
-      } catch (error) {
-        console.error("Error fetching cars:", error);
-      }
-    };
-
-    Data();
-  }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/brands`);
-        setBrands(response.data);
-      } catch (error) {
-        console.error("Error fetching cars:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const handleBrand = async (e) => {
     const brandId = e.target.value;
@@ -131,6 +102,7 @@ export const Cars = () => {
       setDay(day);
     }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -183,16 +155,36 @@ export const Cars = () => {
     } else {
       SetFilterData(filteredData);
     }
+
+    setOpen(false);
   };
 
   useEffect(() => {
     SetFilterData(filteredCars);
   }, [filteredCars]);
 
+  useEffect(() => {
+    const CarsData = Cars && Cars.data ? Cars.data : [];
+
+    const brandFilter = CarsData.filter((item) => item.brand.id === id);
+    const modelFilter = CarsData.filter((item) => item.location.id === id);
+
+    const combinedFilter = [...brandFilter, ...modelFilter];
+
+    SetFilterData(combinedFilter);
+  }, [Cars, id]);
+
   return (
     <section className="vehicle">
+      <button className="vehicle-settings" onClick={handleOpen}>
+        {open ? (
+          <GoArrowLeft className="vehicle-settings-icon2" />
+        ) : (
+          <GiSettingsKnobs className="vehicle-settings-icon" />
+        )}
+      </button>
       <div className="container">
-        <div className="vehicle-box">
+        <div className={open ? "vehicle-box-filter" : "vehicle-box"}>
           <div className="vehicle-div">
             <h3 className="vehicle-by">Filter By</h3>
             <h4 className="vehicle-offer">Offers</h4>
@@ -286,10 +278,10 @@ export const Cars = () => {
             </form>
           </div>
         </div>
-        <div className="vehicle-main">
+        <div className={open ? "vehicle-main2" : "vehicle-main"}>
           <Link className="vehicle-link" to={"/cars"}>
-            Luxury Cars for Rent in Dubai /{" "}
-            <span>Hire the latest supercar</span>
+            {t("home-category-main-title")} /{" "}
+            <span>{t("home-category-card2-desc2")}</span>
           </Link>
 
           <ul className="vehicle-ul">

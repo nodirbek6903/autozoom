@@ -7,14 +7,15 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import GetCars from "../../../../api/cars/get-cars.api";
 
 const Brands = () => {
   const [brands, setBrands] = useState([]);
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
-
+  const { id } = useParams();
   useEffect(() => {
     fetchData();
   }, []);
@@ -32,6 +33,12 @@ const Brands = () => {
       console.log(error);
     }
   };
+
+  // const getCars = GetCars();
+  // const Cars = getCars.data;
+
+  // const test = Cars.data.filter((item) => item.brand_id === id);
+  // console.log(test);
 
   return (
     <div className="brands-container">
@@ -56,31 +63,31 @@ const Brands = () => {
             },
             768: {
               slidesPerView: 4,
-              spaceBetween:15,
+              spaceBetween: 15,
               pagination: {
-                clickable:true
-              }
+                clickable: true,
+              },
             },
             992: {
               slidesPerView: 5,
               spaceBetween: 20,
               pagination: {
-                clickable:true
-              }
+                clickable: true,
+              },
             },
             1200: {
               slidesPerView: 6,
-              spaceBetween:30,
+              spaceBetween: 30,
               pagination: {
-                clickable:true
+                clickable: true,
               },
-              grid:{
+              grid: {
                 rows: 2,
                 fill: "row",
-              }
+              },
             },
-          }}  
-          pagination={true}       
+          }}
+          pagination={true}
           modules={[Navigation, Pagination, Grid]}
           className="swiper-cards"
         >
