@@ -10,7 +10,7 @@
   width: 75px;
 }
 
-.MuiOutlinedInput-notchedOutline .MuiOutlinedInput-root .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+/* .MuiOutlinedInput-notchedOutline .MuiOutlinedInput-root .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
     border: 1px solid #c3c3c3  !important;
     background-color: #838383bd;
     color:white !important;
@@ -19,10 +19,21 @@
     outline: none !important;
     padding: 15px !important;
     width: 100% !important;
-  }
+  } */
 
 .MuiOutlinedInput-notchedOutline {
     border:none !important ;
     outline: none !important;
+    width: 100% !important;
+  }
+
+  .carsinfo-form .cars-info-input{
+    border: 1px solid #c3c3c3  !important;
+    background-color: #838383bd;
+    color:white !important;
+    font-size: 20px !important;
+    margin-bottom: 20px !important;
+    outline: none !important;
+    padding: 5px !important;
     width: 100% !important;
   }

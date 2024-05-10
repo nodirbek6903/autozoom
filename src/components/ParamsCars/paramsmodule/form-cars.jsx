@@ -12,10 +12,10 @@ const FormCars = () => {
 
   return<Box sx={{width:"100%",display:"flex",justifyContent:"center"}} >
 
-  <form style={{width:"400px",border:"1px solid #c3c3c3",padding:"40px"}} onSubmit={handleSubmit} >
+  <form className="carsinfo-form" style={{width:"400px",border:"1px solid #c3c3c3",padding:"40px"}} onSubmit={handleSubmit} >
       <TextField
         type="text"
-        className="MuiOutlinedInput-notchedOutline "
+        className="MuiOutlinedInput-notchedOutline cars-info-input"
         required
         name="username"
         value={values.name}
@@ -25,7 +25,7 @@ const FormCars = () => {
         id="margin-none"
       />
       <TextField
-        className="MuiOutlinedInput-notchedOutline "
+        className="MuiOutlinedInput-notchedOutline cars-info-input"
         type="text"
         name="text"
         value={values.phone}
@@ -34,7 +34,7 @@ const FormCars = () => {
         placeholder="Phone"
       />
       <TextField
-        className="MuiOutlinedInput-notchedOutline "
+        className="MuiOutlinedInput-notchedOutline cars-info-input"
         type="text"
         required
         name="text"
@@ -43,7 +43,7 @@ const FormCars = () => {
         placeholder="Period"
       />
       <TextField
-        className="MuiOutlinedInput-notchedOutline "
+        className="MuiOutlinedInput-notchedOutline cars-info-input"
         type="text"
         required
         name="text"
