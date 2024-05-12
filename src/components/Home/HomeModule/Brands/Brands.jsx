@@ -9,7 +9,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import GetCars from "../../../../api/cars/get-cars.api";
 
 const Brands = () => {
   const [brands, setBrands] = useState([]);
@@ -39,11 +38,6 @@ const Brands = () => {
       top: 0,
     });
   };
-  // const getCars = GetCars();
-  // const Cars = getCars.data;
-
-  // const test = Cars.data.filter((item) => item.brand_id === id);
-  // console.log(test);
 
   return (
     <div className="brands-container">

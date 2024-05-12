@@ -43,6 +43,8 @@ export const Cars = () => {
   const getCars = GetCars();
   const Cars = getCars.data;
 
+  const [CheckEmpty, setCheckEmpty] = useState();
+  const [CheckStatus, setCheckStatus] = useState();
   let { id } = useParams();
 
   const handleOpen = () => {
@@ -103,6 +105,10 @@ export const Cars = () => {
     }
   };
 
+  useEffect(() => {
+    setCheckStatus(true);
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -146,6 +152,12 @@ export const Cars = () => {
       );
     }
 
+    if (combinedFilter.length === 0 || modelFilter === 0 || totalPrice === 0) {
+      setCheckEmpty(true);
+    } else {
+      setCheckEmpty(false);
+    }
+
     if (totalPrice.length > 0) {
       SetFilterData(totalPrice);
     } else if (modelFilter.length > 0) {
@@ -157,6 +169,7 @@ export const Cars = () => {
     }
 
     setOpen(false);
+    setCheckStatus(false);
   };
 
   useEffect(() => {
@@ -170,10 +183,16 @@ export const Cars = () => {
     const modelFilter = CarsData.filter((item) => item.location.id === id);
 
     const combinedFilter = [...brandFilter, ...modelFilter];
-
+    if (combinedFilter.length === 0) {
+      setCheckEmpty(true);
+    } else {
+      setCheckEmpty(false);
+    }
     SetFilterData(combinedFilter);
+    setCheckStatus(false);
   }, [Cars, id]);
 
+  console.log(CheckEmpty);
   return (
     <section className="vehicle">
       <button className="vehicle-settings" onClick={handleOpen}>
@@ -285,30 +304,35 @@ export const Cars = () => {
           </Link>
 
           <ul className="vehicle-ul">
-            {FilterData && FilterData.length > 0
-              ? FilterData.map((item, index) => (
-                  <CarsList
-                    key={index}
-                    src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item.car_images[0].image.src}`}
-                    name={item.brand.title}
-                    model={item.model.name}
-                    slug={item.price_in_aed}
-                    text={item.price_in_usd}
-                    id={item.id}
-                  />
-                ))
-              : Cars &&
-                Cars.data.map((item, index) => (
-                  <CarsList
-                    key={index}
-                    src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item.car_images[0].image.src}`}
-                    name={item.brand.title}
-                    model={item.model.name}
-                    slug={item.price_in_aed}
-                    text={item.price_in_usd}
-                    id={item.id}
-                  />
-                ))}
+            {CheckStatus === true && Cars && Cars.data ? (
+              Cars.data.map((item, index) => (
+                <CarsList
+                  key={index}
+                  src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item.car_images[0].image.src}`}
+                  name={item.brand.title}
+                  model={item.model.name}
+                  slug={item.price_in_aed}
+                  text={item.price_in_usd}
+                  id={item.id}
+                />
+              ))
+            ) : CheckEmpty === true ? (
+              <span className="vehicle-no">
+                Sizning so&apos;rovingiz bo&apos;yicha mashinalar topilmadi
+              </span>
+            ) : FilterData && FilterData.length > 0 ? (
+              FilterData.map((item, index) => (
+                <CarsList
+                  key={index}
+                  src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item.car_images[0].image.src}`}
+                  name={item.brand.title}
+                  model={item.model.name}
+                  slug={item.price_in_aed}
+                  text={item.price_in_usd}
+                  id={item.id}
+                />
+              ))
+            ) : null}
           </ul>
         </div>
       </div>

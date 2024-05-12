@@ -233,6 +233,13 @@
   padding: 15px 25px;
 }
 
+.vehicle-no {
+  color: #fff;
+  font-size: 18px;
+  font-family: AvertaCY, sans-serif;
+  letter-spacing: 1.2px;
+}
+
 @media screen and (max-width: 1010px) {
   .vehicle-list {
     width: calc(100% / 2 - 15px);
