@@ -93,9 +93,6 @@ const Footer = () => {
                   <Link to="/about-us" onClick={handleClick} className="footer-about-title">
                   {t("nav-item4")}
                   </Link>
-                  <Link to="/our-team" onClick={handleClick} className="footer-about-descr">
-                    {t("footer-about-item1")}
-                  </Link>
                   <Link to="/faq" onClick={handleClick} className="footer-about-descr">
                   {t("footer-about-item2")}
                   </Link>

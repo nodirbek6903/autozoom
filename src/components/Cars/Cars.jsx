@@ -177,22 +177,26 @@ export const Cars = () => {
   }, [filteredCars]);
 
   useEffect(() => {
-    const CarsData = Cars && Cars.data ? Cars.data : [];
+    if (id) {
+      const CarsData = Cars && Cars.data ? Cars.data : [];
 
-    const brandFilter = CarsData.filter((item) => item.brand.id === id);
-    const modelFilter = CarsData.filter((item) => item.location.id === id);
+      const brandFilter = CarsData.filter((item) => item.brand.id === id);
+      const modelFilter = CarsData.filter((item) => item.location.id === id);
 
-    const combinedFilter = [...brandFilter, ...modelFilter];
-    if (combinedFilter.length === 0) {
-      setCheckEmpty(true);
+      const combinedFilter = [...brandFilter, ...modelFilter];
+      if (combinedFilter.length === 0) {
+        setCheckEmpty(true);
+        setCheckStatus(false);
+      } else {
+        setCheckEmpty(false);
+        setCheckStatus(false);
+      }
+      SetFilterData(combinedFilter);
     } else {
-      setCheckEmpty(false);
+      console.log("false");
     }
-    SetFilterData(combinedFilter);
-    setCheckStatus(false);
   }, [Cars, id]);
 
-  console.log(CheckEmpty);
   return (
     <section className="vehicle">
       <button className="vehicle-settings" onClick={handleOpen}>
