@@ -48,7 +48,46 @@ const Info = () => {
               </button>
             </div>
             <div className="card-slider">
-              <Swiper loop={false} slidesPerView={3} className="card-swiper">
+              <Swiper loop={true}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                  spaceBetween: 0,
+                  pagination: false,
+                },
+                400: {
+                  slidesPerView: 1,
+                  spaceBetween: 10,
+                  pagination: false,
+                },
+                576: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                  pagination: false,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween:15,
+                  pagination: {
+                    clickable:true
+                  }
+                },
+                992: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                  pagination: {
+                    clickable:true
+                  }
+                },
+                1200: {
+                  slidesPerView: 3,
+                  spaceBetween:30,
+                  pagination: {
+                    clickable:true
+                  },
+                },
+              }}
+              slidesPerView={3} className="card-swiper">
                 {car.car_images.map((image, imageIndex) => (
                   <SwiperSlide key={imageIndex}>
                     <Link
