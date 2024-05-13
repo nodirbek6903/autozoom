@@ -87,11 +87,7 @@ const Brands = () => {
               },
             },
           }}
-<<<<<<< HEAD
           pagination={true}       
-=======
-          pagination={true}
->>>>>>> b0765b994750d6a63f47b9815a32349020d0d075
           modules={[Navigation, Pagination, Grid]}
           className="swiper-cards"
         >
