@@ -50,7 +50,7 @@ const Footer = () => {
             <span className="footer-descr">
               {t("footer-card1-desc")}
             </span>
-            <a href="tel:+998903646903" target="_blank" className="footer-btn">
+            <a href="tel:+998903646903" className="footer-btn">
               {t("footer-card1-btn")}
             </a>
           </div>
@@ -92,9 +92,6 @@ const Footer = () => {
                 <div className="footer-about">
                   <Link to="/about-us" onClick={handleClick} className="footer-about-title">
                   {t("nav-item4")}
-                  </Link>
-                  <Link to="/our-team" onClick={handleClick} className="footer-about-descr">
-                    {t("footer-about-item1")}
                   </Link>
                   <Link to="/faq" onClick={handleClick} className="footer-about-descr">
                   {t("footer-about-item2")}

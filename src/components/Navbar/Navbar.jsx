@@ -16,13 +16,12 @@ const Navbar = () => {
   const [brandModal, setBrandModal] = useState(false);
   const [active, setActive] = useState(false);
   const [navActive, setNavActive] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
   const [searchQuery, setSearchQuery] = useState("");
   const [Carss, SetCars] = useState([]);
   const navigate = useNavigate();
 
-  const { filteredCars, setFilteredCars } = useContext(FilteredCarsContext);
+  const { setFilteredCars } = useContext(FilteredCarsContext);
   const BASE_URL = "https://autoapi.dezinfeksiyatashkent.uz/api";
 
   // Fetch brands

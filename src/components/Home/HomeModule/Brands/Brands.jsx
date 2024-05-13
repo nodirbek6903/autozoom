@@ -7,14 +7,14 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Brands = () => {
   const [brands, setBrands] = useState([]);
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   const imgUrl = "https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/";
-
+  const { id } = useParams();
   useEffect(() => {
     fetchData();
   }, []);
@@ -35,15 +35,16 @@ const Brands = () => {
 
   const handleTop = () => {
     window.scrollTo({
-      top:0
-    })
-  }
+      top: 0,
+    });
+  };
 
   return (
     <div className="brands-container">
       <div className="brands-section">
         <h1 className="card-title">{t("home-brand-title")}</h1>
         <Swiper
+          // loop={true}
           breakpoints={{
             0: {
               slidesPerView: 1,
@@ -62,37 +63,45 @@ const Brands = () => {
             },
             768: {
               slidesPerView: 4,
-              spaceBetween:15,
+              spaceBetween: 15,
               pagination: {
-                clickable:true
-              }
+                clickable: true,
+              },
             },
             992: {
               slidesPerView: 5,
               spaceBetween: 20,
               pagination: {
-                clickable:true
-              }
+                clickable: true,
+              },
             },
             1200: {
               slidesPerView: 6,
-              spaceBetween:30,
+              spaceBetween: 30,
               pagination: {
-                clickable:true
+                clickable: true,
               },
-              grid:{
+              grid: {
                 rows: 2,
                 fill: "row",
-              }
+              },
             },
           }}
+<<<<<<< HEAD
           pagination={true}       
+=======
+          pagination={true}
+>>>>>>> b0765b994750d6a63f47b9815a32349020d0d075
           modules={[Navigation, Pagination, Grid]}
           className="swiper-cards"
         >
           {brands.map((item, index) => (
             <SwiperSlide className="swiper-slide" key={index}>
-              <Link to={`/cars/${item.id}`} onClick={handleTop} className="swiper-card">
+              <Link
+                to={`/cars/${item.id}`}
+                onClick={handleTop}
+                className="swiper-card"
+              >
                 <img
                   src={imgUrl + item.image_src}
                   className="brand-img"
