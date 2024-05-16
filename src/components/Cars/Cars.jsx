@@ -45,6 +45,8 @@ export const Cars = () => {
 
   const [CheckEmpty, setCheckEmpty] = useState();
   const [CheckStatus, setCheckStatus] = useState();
+  const [checkSearch, setCheckSearch] = useState();
+
   let { id } = useParams();
 
   const handleOpen = () => {
@@ -141,7 +143,7 @@ export const Cars = () => {
     } else if (price === 1800 && day === 3) {
       totalPrice = filteredData.filter((car) => car.three_days_price <= 1800);
     } else if (price === 5000 && day === "all") {
-      totalPrice = filteredData.filter((car) => car.price_in_aed <= 5000);
+      totalPrice = filteredData.filter((car) => car.price_in_aed * 2 <= 5000);
     } else if (price === 0 && day === "no") {
       totalPrice = filteredData.filter((car) => car.deposit === 0);
     } else if (price === 5000 && day === 4) {
@@ -152,13 +154,18 @@ export const Cars = () => {
       );
     }
 
-    if (combinedFilter.length === 0 || modelFilter === 0 || totalPrice === 0) {
+    if (combinedFilter.length === 0 || modelFilter === 0) {
       setCheckEmpty(true);
     } else {
       setCheckEmpty(false);
     }
 
     if (totalPrice.length > 0) {
+      if (totalPrice == 0) {
+        setCheckEmpty(true);
+      } else {
+        setCheckEmpty(false);
+      }
       SetFilterData(totalPrice);
     } else if (modelFilter.length > 0) {
       SetFilterData(modelFilter);
@@ -173,6 +180,22 @@ export const Cars = () => {
   };
 
   useEffect(() => {
+    const test = async () => {
+      setCheckSearch(true);
+      if (filteredCars.length > 0) {
+        if (checkSearch === true) {
+          await setCheckStatus(false);
+        }
+      } else {
+        if (checkSearch) {
+          await setCheckStatus(false);
+          setCheckEmpty(true);
+          setCheckSearch(false);
+        }
+      }
+    };
+
+    test();
     SetFilterData(filteredCars);
   }, [filteredCars]);
 
@@ -182,8 +205,12 @@ export const Cars = () => {
 
       const brandFilter = CarsData.filter((item) => item.brand.id === id);
       const modelFilter = CarsData.filter((item) => item.location.id === id);
-
-      const combinedFilter = [...brandFilter, ...modelFilter];
+      const categoryFilter = CarsData.filter((item) => item.category.id === id);
+      const combinedFilter = [
+        ...brandFilter,
+        ...modelFilter,
+        ...categoryFilter,
+      ];
       if (combinedFilter.length === 0) {
         setCheckEmpty(true);
         setCheckStatus(false);
@@ -192,8 +219,6 @@ export const Cars = () => {
         setCheckStatus(false);
       }
       SetFilterData(combinedFilter);
-    } else {
-      console.log("false");
     }
   }, [Cars, id]);
 
@@ -320,6 +345,18 @@ export const Cars = () => {
                   id={item.id}
                 />
               ))
+            ) : checkSearch === true ? (
+              FilterData.map((item, index) => (
+                <CarsList
+                  key={index}
+                  src={`https://autoapi.dezinfeksiyatashkent.uz/api/uploads/images/${item.car_images[0].image.src}`}
+                  name={item.brand.title}
+                  model={item.model.name}
+                  slug={item.price_in_aed}
+                  text={item.price_in_usd}
+                  id={item.id}
+                />
+              ))
             ) : CheckEmpty === true ? (
               <span className="vehicle-no">
                 Sizning so&apos;rovingiz bo&apos;yicha mashinalar topilmadi
@@ -336,7 +373,9 @@ export const Cars = () => {
                   id={item.id}
                 />
               ))
-            ) : null}
+            ) : (
+              "null"
+            )}
           </ul>
         </div>
       </div>
